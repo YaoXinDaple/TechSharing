@@ -3,6 +3,7 @@ using BenchmarkDotNet.Running;
 
 BenchmarkRunner.Run<StringComparer>();
 
+[SimpleJob(launchCount: 1, warmupCount: 1, iterationCount: 1)]
 [MemoryDiagnoser]
 public class StringComparer
 {

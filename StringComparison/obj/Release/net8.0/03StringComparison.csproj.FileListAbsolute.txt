@@ -83,3 +83,4 @@ C:\Users\Yao\source\repos\TechSharing\StringComparison\obj\Release\net8.0\refint
 C:\Users\Yao\source\repos\TechSharing\StringComparison\obj\Release\net8.0\03StringComparison.pdb
 C:\Users\Yao\source\repos\TechSharing\StringComparison\obj\Release\net8.0\03StringComparison.genruntimeconfig.cache
 C:\Users\Yao\source\repos\TechSharing\StringComparison\obj\Release\net8.0\ref\03StringComparison.dll
+C:\Users\Yao\source\repos\TechSharing\StringComparison\obj\Release\net8.0\03StringComparison.sourcelink.json

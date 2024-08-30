@@ -12,3 +12,10 @@
 .vs/ProjectEvaluation/techsharing.strings.v8.bin
 .vs/ProjectEvaluation/techsharing.projects.v8.bin
 .vs/ProjectEvaluation/techsharing.metadata.v8.bin
+/.vs/TechSharing/FileContentIndex
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+/Consumer/bin/Debug
+/Consumer/bin/Debug

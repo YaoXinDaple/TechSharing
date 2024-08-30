@@ -29,3 +29,4 @@ C:\Users\Yao\source\repos\TechSharing\Consumer\obj\Debug\net8.0\refint\Consumer.
 C:\Users\Yao\source\repos\TechSharing\Consumer\obj\Debug\net8.0\Consumer.pdb
 C:\Users\Yao\source\repos\TechSharing\Consumer\obj\Debug\net8.0\Consumer.genruntimeconfig.cache
 C:\Users\Yao\source\repos\TechSharing\Consumer\obj\Debug\net8.0\ref\Consumer.dll
+C:\Users\Yao\source\repos\TechSharing\Consumer\obj\Debug\net8.0\Consumer.sourcelink.json

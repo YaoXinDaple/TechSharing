@@ -8,14 +8,14 @@ Console.ReadKey();
 var option = new GrpcChannelOptions
 {
 };
-using var channel = GrpcChannel.ForAddress("https://localhost:7011", option);
+using var channel = GrpcChannel.ForAddress("https://localhost:44351", option);
 
 var client = new GreeterServicDefinition.GreeterServicDefinitionClient(channel);
 
 
 //一次调用，一次响应
-//var response = client.Unary(new HelloRequest { Name = "Client" });
-//Console.WriteLine(response.Message);
+var response = client.Unary(new HelloRequest { Name = "Client" });
+Console.WriteLine(response.Message);
 
 
 
@@ -72,23 +72,23 @@ var client = new GreeterServicDefinition.GreeterServicDefinitionClient(channel);
 
 
 //客户端接收到特定结果时，取消调用
-try
-{
-	var cts = new CancellationTokenSource();
-	var call = client.ServerStream(new HelloRequest { Name = "Client" }, cancellationToken: cts.Token);
-	await foreach (var response in call.ResponseStream.ReadAllAsync(cts.Token))
-	{
-		Console.WriteLine(response.Message);
-		if (response.Message.Contains("Hello Client from GrpcServerSide,Message Title 5"))
-		{
-			cts.Cancel();
-		}
-	}
-}
-catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
-{
-    Console.WriteLine("客户端取消任务,异常捕获");
-}
+//try
+//{
+//	var cts = new CancellationTokenSource();
+//	var call = client.ServerStream(new HelloRequest { Name = "Client" }, cancellationToken: cts.Token);
+//	await foreach (var response in call.ResponseStream.ReadAllAsync(cts.Token))
+//	{
+//		Console.WriteLine(response.Message);
+//		if (response.Message.Contains("Hello Client from GrpcServerSide,Message Title 5"))
+//		{
+//			cts.Cancel();
+//		}
+//	}
+//}
+//catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
+//{
+//    Console.WriteLine("客户端取消任务,异常捕获");
+//}
 
 
 
