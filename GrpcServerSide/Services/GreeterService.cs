@@ -66,11 +66,26 @@ namespace GrpcServerSide.Services
                 Console.WriteLine("接收到客户端传入消息：" + requestPayload.Name);
                 await Task.Delay(1000);
                 Console.WriteLine("服务端发送消息：Hello " + requestPayload.Name + " from GrpcServerSide");
-                await responseStream.WriteAsync(new HelloReply
-                {
-                    Message = "Hello " + requestPayload.Name + " from GrpcServerSide"
-                });
+                Task t1 = NameTask(requestPayload.Name, responseStream);
             }
         }
+
+        private async Task NameTask(string name, IServerStreamWriter<HelloReply> responseStream)
+        {
+            if (name=="1")
+            {
+                await Task.Delay(10000);
+            }
+            else if(name=="2")
+            {
+                await Task.Delay(2000);
+            }
+            await responseStream.WriteAsync(new HelloReply
+            {
+                Message = "Hello " + name + " from GrpcServerSide"
+            });
+        }
+
+
     }
 }
