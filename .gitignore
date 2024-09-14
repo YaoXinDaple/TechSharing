@@ -1,44 +1,22 @@
-
-.vs/TechSharing/v17/DocumentLayout.json
-.vs/TechSharing/v17/.suo
-.vs/TechSharing/v17/.futdcache.v2
-.vs/TechSharing/FileContentIndex/e4c38efb-53a4-4b56-ad35-4f0caa10af71.vsidx
-.vs/TechSharing/FileContentIndex/d59092cc-6aaa-40d4-b928-fa72a0d41820.vsidx
-.vs/TechSharing/FileContentIndex/aa5e97a9-dd6c-4ce2-b415-ea4a6dd36481.vsidx
-.vs/TechSharing/FileContentIndex/76b0fd7a-d797-45cf-be1e-d683ec84322c.vsidx
-.vs/TechSharing/FileContentIndex/3363c453-635d-4d18-8309-b313ae3f81e5.vsidx
-.vs/TechSharing/DesignTimeBuild/.dtbcache.v2
-.vs/TechSharing/config/applicationhost.config
-.vs/ProjectEvaluation/techsharing.strings.v8.bin
-.vs/ProjectEvaluation/techsharing.projects.v8.bin
-.vs/ProjectEvaluation/techsharing.metadata.v8.bin
-/.vs/TechSharing/FileContentIndex
-**/bin/
-**/obj/
-**/Debug/
-**/Release/
-/Consumer/bin/Debug
-/Consumer/bin/Debug
-**/AssemblyInfo.cs
-**/.cache
-/TechSharing/obj/Release/net8.0/01ArrayAndList.AssemblyInfoInputs.cache
-/StringComparison/obj/Release/net8.0/03StringComparison.AssemblyInfo.cs
-/ListCountAndAny/obj/Release/net8.0/02ListCountAndAny.AssemblyInfo.cs
-/ListCountAndAny/obj/Release/net8.0/02ListCountAndAny.AssemblyInfoInputs.cache
-/LogWithStringTemplate/obj/Release/net8.0/LogWithStringTemplate.AssemblyInfo.cs
-/LogWithStringTemplate/obj/Release/net8.0/LogWithStringTemplate.AssemblyInfoInputs.cache
-/StateMachineAlgorithm/obj/Release/net8.0/09StateMachineAlgorithm.AssemblyInfo.cs
-/StateMachineAlgorithm/obj/Release/net8.0/09StateMachineAlgorithm.AssemblyInfoInputs.cache
-/StringComparison/obj/Release/net8.0/03StringComparison.AssemblyInfoInputs.cache
-/StringIndexOfContains/obj/Release/net8.0/04StringContains.AssemblyInfo.cs
-/StringIndexOfContains/obj/Release/net8.0/04StringContains.AssemblyInfoInputs.cache
-/StringSplit/obj/Release/net8.0/05StringSplit.AssemblyInfo.cs
-/StringSplit/obj/Release/net8.0/05StringSplit.AssemblyInfoInputs.cache
-/TechSharing/obj/Release/net8.0/01ArrayAndList.AssemblyInfo.cs
-/06StringConstructor/obj/Release/net8.0/06StringConstructor.AssemblyInfo.cs
-/06StringConstructor/obj/Release/net8.0/06StringConstructor.AssemblyInfoInputs.cache
-/Consumer/obj/Release/net8.0/Consumer.AssemblyInfo.cs
-/Consumer/obj/Release/net8.0/Consumer.AssemblyInfoInputs.cache
-/FrozenDic/obj/Release/net8.0/08FrozenDic.AssemblyInfo.cs
-/FrozenDic/obj/Release/net8.0/08FrozenDic.AssemblyInfoInputs.cache
-/.vs/TechSharing
+**/[Bb]in/**
+**/[Oo]bj/**
+**/[Ll]og/**
+.vs/*
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+# NuGet v3's project.json files produces more ignoreable files
+*.nuget.props
+*.nuget.targets
