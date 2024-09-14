@@ -1,5 +1,0 @@
-C:\Users\Yao\source\repos\TechSharing\LogWithStringTemplate\obj\Release\net8.0\07_LogWithStringTemplate.csproj.AssemblyReference.cache
-C:\Users\Yao\source\repos\TechSharing\LogWithStringTemplate\obj\Release\net8.0\07_LogWithStringTemplate.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Yao\source\repos\TechSharing\LogWithStringTemplate\obj\Release\net8.0\07_LogWithStringTemplate.AssemblyInfoInputs.cache
-C:\Users\Yao\source\repos\TechSharing\LogWithStringTemplate\obj\Release\net8.0\07_LogWithStringTemplate.AssemblyInfo.cs
-C:\Users\Yao\source\repos\TechSharing\LogWithStringTemplate\obj\Release\net8.0\07_LogWithStringTemplate.csproj.CoreCompileInputs.cache
