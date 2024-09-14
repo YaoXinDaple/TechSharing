@@ -1,4 +1,5 @@
 using Grpc.Core;
+using System.Text;
 
 namespace GrpcServerSide.Services
 {
@@ -12,11 +13,22 @@ namespace GrpcServerSide.Services
 
         public override Task<HelloReply> Unary(HelloRequest request, ServerCallContext context)
         {
-            var reponse = new HelloReply
+            //var reponse = new HelloReply
+            //{
+            //    Message = "Hello " + request.Name + " from GrpcServerSide"
+            //};
+            //return Task.FromResult(reponse);
+
+            StringBuilder message =new StringBuilder();
+            foreach (var item in Enumerable.Range(1,10000))
             {
-                Message = "Hello " + request.Name + " from GrpcServerSide"
+                message.AppendLine($"Hello {item} from GrpcServerSide");
+            }
+            var response = new HelloReply
+            {
+                Message = message.ToString()
             };
-            return Task.FromResult(reponse);
+            return Task.FromResult(response);
         }
 
         public override async Task<HelloReply> ClientStream(IAsyncStreamReader<HelloRequest> requestStream, ServerCallContext context)
