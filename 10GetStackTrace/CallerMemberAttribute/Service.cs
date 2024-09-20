@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace LogWithStringTemplate.CallerMemberAttribute
+namespace GetStackTrace.CallerMemberAttribute
 {
     public static class Service
     {

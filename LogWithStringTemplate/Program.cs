@@ -1,16 +1,9 @@
-﻿using LogWithStringTemplate.CallerMemberAttribute;
-using Serilog;
-using Serilog.Core;
+﻿using Serilog;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console()
     .CreateLogger();
-
-//记录堆栈信息
-//CallerOne.GetCallerInfo();
-//CallerTwo.GetCallerInfo();
-
 
 Console.WriteLine("Ready To Log");
 Console.ReadKey();
@@ -51,7 +44,7 @@ var p = new
 Log.Information("The list is {StrList}", string.Join(",", strList));
 Log.Information("The list is {StrList},num = {Num}", string.Join(",", strList), num);
 Log.Information("The list is {StrList2},list2 is {StrList}", string.Join(",", strList), string.Join(",", strList2));
-Log.Information("p = {p}", p); 
+Log.Information("p = {p}", p);
 #endregion
 
 Console.WriteLine();

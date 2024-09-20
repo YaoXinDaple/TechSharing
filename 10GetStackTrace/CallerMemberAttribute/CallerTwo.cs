@@ -1,4 +1,4 @@
-﻿namespace LogWithStringTemplate.CallerMemberAttribute
+﻿namespace GetStackTrace.CallerMemberAttribute
 {
     internal class CallerTwo
     {
