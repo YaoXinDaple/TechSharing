@@ -31,7 +31,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcServerSide", "GrpcServe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "Consumer\Consumer.csproj", "{6A54C738-D578-4EBC-85E4-17AA8DEAE0CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeserializerCompare", "DeserializerCompare\DeserializerCompare.csproj", "{FF5AC75F-EA06-4067-A1EC-4B4933AE85D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeserializerCompare", "DeserializerCompare\DeserializerCompare.csproj", "{FF5AC75F-EA06-4067-A1EC-4B4933AE85D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Roslyn", "Roslyn", "{8EE96DE3-CA3C-4AC9-B1D4-1130EEBC3FB4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Desktop\微信图片_20240920153237.png = ..\..\Desktop\微信图片_20240920153237.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
