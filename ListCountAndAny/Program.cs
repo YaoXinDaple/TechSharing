@@ -3,10 +3,11 @@ using BenchmarkDotNet.Running;
 
 
 //BenchmarkRunner.Run<ListBenchmark>();
-BenchmarkRunner.Run<FindVsFirstOrDefaultBenchmark>();
+//BenchmarkRunner.Run<FindVsFirstOrDefaultBenchmark>();
 //BenchmarkRunner.Run<ListAnyVsExistsBenchmark>();
 //BenchmarkRunner.Run<ArrayAnyVsExistsBenchmark>();
 //BenchmarkRunner.Run<EnumerableAnyVsExistsBechmark>();
+BenchmarkRunner.Run<AllVsTrueForAllBenchmark>();
 
 
 public class ListBenchmark
@@ -122,6 +123,23 @@ public class EnumerableAnyVsExistsBechmark
     public bool Exists()
     {
         return enumerable.ToList().Exists(x => x == 9999);
+    }
+}
+
+public class AllVsTrueForAllBenchmark
+{
+    private List<int> list = new List<int>(Enumerable.Range(0, 10000));
+
+    [Benchmark]
+    public bool All()
+    {
+        return list.All(x => x < 10000);
+    }
+
+    [Benchmark]
+    public bool TrueForAll()
+    {
+        return list.TrueForAll(x => x < 10000);
     }
 }
 
