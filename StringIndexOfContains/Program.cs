@@ -24,7 +24,11 @@ public class StringContains
 
     [Benchmark]
     public bool Any() => testString.Any(c => c.Equals(testChar));
-
 }
+
+/*
+ * 结论：
+ * 应尽可能不要使用Linq的Any方法，大部分情况下性能都是最差的。
+ */
 
 

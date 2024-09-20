@@ -3,7 +3,6 @@ using BenchmarkDotNet.Running;
 
 BenchmarkRunner.Run<StringComparer>();
 
-[SimpleJob(launchCount: 1, warmupCount: 1, iterationCount: 1)]
 [MemoryDiagnoser]
 public class StringComparer
 {
@@ -16,3 +15,9 @@ public class StringComparer
     [Benchmark]
     public bool CompareWithEqualsOverload()=> _target.Equals(_source, StringComparison.OrdinalIgnoreCase);
 }
+
+
+/*
+ * 结论：
+ * 两个字符串的比较，永远不要ToLower之后比较，应该使用Equals方法或者根据实际情况确定是否要使用方法的重载
+ */

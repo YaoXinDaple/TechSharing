@@ -19,8 +19,8 @@ public class StringConstructorTest
     public string ReverseByJoin()
     {
         var array = originalStr.ToCharArray();
-        array = array.Reverse().ToArray();
-        //Array.Reverse(array);
+        //array = array.Reverse().ToArray();
+        Array.Reverse(array);
         return string.Join("", originalStr.Reverse());
     }
 
@@ -28,7 +28,7 @@ public class StringConstructorTest
     public string ReverseWithConstructor()
     {
         var array = originalStr.ToCharArray();
-        array = array.Reverse().ToArray();
+        //array = array.Reverse().ToArray();
         Array.Reverse(array);
         return new string(array);
     }

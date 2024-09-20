@@ -1,6 +1,37 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using Newtonsoft.Json;
 using System.Collections.Frozen;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
+
+var normalDic = new Dictionary<int, int>();
+normalDic.Add(1, 1);
+normalDic.Add(2, 2);
+
+var immutableDic = normalDic.ToImmutableDictionary();
+immutableDic = immutableDic.Add(3, 3);
+
+var readonlyDic = new ReadOnlyDictionary<int, int>(normalDic);
+normalDic[1] = 3;
+
+var frozenDic = normalDic.ToFrozenDictionary();
+//frozenDic.Add(4, 4);
+
+
+Console.WriteLine($"normalDic:{JsonConvert.SerializeObject(normalDic)}");
+Console.WriteLine($"immutableDic:{JsonConvert.SerializeObject(immutableDic)}");
+Console.WriteLine($"readonlyDic:{JsonConvert.SerializeObject(readonlyDic)}");
+Console.WriteLine($"frozenDic:{JsonConvert.SerializeObject(frozenDic)}");
+Console.ReadKey();
+
+
+/*
+ * ImmutableDictionary 包含Add、Remove、SetItem等方法，但是这些方法都会返回一个新的ImmutableDictionary实例，而不会修改原始实例。
+ * ReadOnlyDictionary 也是只读的，但是它是对原始Dictionary的一个包装，所以原始Dictionary的修改会影响到ReadOnlyDictionary。
+ * FrozenDictionary 专门用于优化读取性能，只提供读取相关的方法。
+ */
+
 
 var summary = BenchmarkRunner.Run<DictionaryBenchmarks>();
 
