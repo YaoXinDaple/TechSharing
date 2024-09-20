@@ -1,22 +1,57 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
+using Grpc.Net.Compression;
 using GrpcServerSide;
+using Microsoft.Extensions.Logging;
 
-Console.WriteLine("点击任意键开始...");
-Console.ReadKey();
-
-var option = new GrpcChannelOptions
+//开启日志
+// 创建日志工厂
+var loggerFactory = LoggerFactory.Create(builder =>
 {
-};
-using var channel = GrpcChannel.ForAddress("https://localhost:44351", option);
+    builder.SetMinimumLevel(LogLevel.Trace); // 设置最低日志级别
+});
 
-var client = new GreeterServicDefinition.GreeterServicDefinitionClient(channel);
+// 创建日志记录器
+var logger = loggerFactory.CreateLogger<Program>();
+
+while (true)
+{
+
+    Console.WriteLine("点击任意键开始...");
+    Console.ReadKey();
+
+    var option = new GrpcChannelOptions
+    {
+        CompressionProviders = new List<ICompressionProvider>
+               {
+                   new GzipCompressionProvider(System.IO.Compression.CompressionLevel.SmallestSize)
+               }
+    };
 
 
-//一次调用，一次响应
-var response = client.Unary(new HelloRequest { Name = "Client" });
-Console.WriteLine(response.Message);
+    using var channel = GrpcChannel.ForAddress("https://localhost:7011"
+        , new GrpcChannelOptions { CompressionProviders = new List<ICompressionProvider>() }
+        );
 
+    var client = new GreeterServicDefinition.GreeterServicDefinitionClient(channel);
+
+
+    //var metadata = new Metadata { { "grpc-accept-encoding", "gzip" }, { "accept-encoding", "gzip" } };
+
+
+
+    var metadata = new Metadata
+    {
+        { "grpc-accept-encoding", "gzip" },
+        { "accept-encoding", "gzip" }
+    };
+    var callOptions = new Grpc.Core.CallOptions(metadata);
+
+    //一次调用，一次响应
+    var response = client.Unary(new HelloRequest { Name = "Client" });
+    Console.WriteLine(response.Message);
+
+}
 
 
 //客户端，多次调用，一次返回

@@ -4,7 +4,7 @@
     {
         public static string GetCallerInfo()
         {
-            return Service.SomeMethod("1");
+            return Service.SomeMethodWithReflection("1");
         }
     }
 }

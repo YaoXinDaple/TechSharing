@@ -1,11 +1,34 @@
+using GrpcServerSide.Interceptors;
 using GrpcServerSide.Services;
+using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders(); // 清除所有默认日志提供程序
+builder.Logging.AddConsole()
+       .AddFilter("Microsoft.AspNetCore", LogLevel.Trace)
+       .AddFilter("System", LogLevel.Trace)
+       .AddFilter("Default", LogLevel.Trace);
+
+
+builder.Services.AddTransient<ServerLogginInterceptor>();
 // Add services to the container.
-builder.Services.AddGrpc();
+builder.Services.AddGrpc(options =>
+{
+    options.ResponseCompressionAlgorithm = "gzip";
+    options.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.SmallestSize;
+    options.Interceptors.Add<ServerLogginInterceptor>();
+});
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+});
 
 var app = builder.Build();
+app.UseResponseCompression();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<GreeterService>();
