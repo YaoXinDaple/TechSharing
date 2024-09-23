@@ -9,6 +9,7 @@ namespace FluentValidationDemo.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly IValidator<CreateDataRequest> _createDataRequestValidator;
+        private readonly IValidator<UpdateDataRequest> _updateDataRequestValidator;
 
         private static readonly string[] Summaries = new[]
         {
@@ -17,10 +18,14 @@ namespace FluentValidationDemo.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IValidator<CreateDataRequest> createDataRequestValidator)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger, 
+            IValidator<CreateDataRequest> createDataRequestValidator, 
+            IValidator<UpdateDataRequest> updateDataRequestValidator)
         {
             _logger = logger;
             _createDataRequestValidator = createDataRequestValidator;
+            _updateDataRequestValidator = updateDataRequestValidator;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -51,6 +56,17 @@ namespace FluentValidationDemo.Controllers
         public IActionResult PostUseValidatorDi([FromBody] CreateDataRequest request)
         {
             var result = _createDataRequestValidator.Validate(request);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors);
+            }
+            return Ok();
+        }
+
+        [HttpPost("post-use-async-validator")]
+        public async Task<IActionResult> PostUseAsynchronousValidate([FromBody] UpdateDataRequest request)
+        {
+            var result = await _updateDataRequestValidator.ValidateAsync(request);
             if (!result.IsValid)
             {
                 return BadRequest(result.Errors);

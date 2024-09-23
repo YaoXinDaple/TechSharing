@@ -1,5 +1,6 @@
 using FluentValidation;
 using FluentValidationDemo.Models;
+using FluentValidationDemo.Repository;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,8 @@ builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 //手动注册验证服务
 //builder.Services.AddTransient<IValidator<CreateDataRequest>, CreateDataRequestValidator>();
+
+builder.Services.AddScoped<DataRepository>();
 
 var app = builder.Build();
 
