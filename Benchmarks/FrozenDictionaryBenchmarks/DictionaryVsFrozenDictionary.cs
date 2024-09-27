@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using System.Collections.Frozen;
+using System.ComponentModel;
 
 namespace Benchmarks.FrozenDictionaryBenchmarks
 {
@@ -43,6 +44,7 @@ namespace Benchmarks.FrozenDictionaryBenchmarks
         }
     }
 
+    [Description("字典（Dictionary）和冻结字典（FrozenDictionary）的读取效率")]
     public static class DictionaryBenchmarks
     {
         public static void Run()

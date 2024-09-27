@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.ComponentModel;
 
 namespace Benchmarks.StringComparisonBenchmarks
 {
@@ -16,6 +17,7 @@ namespace Benchmarks.StringComparisonBenchmarks
         public bool CompareWithEqualsOverload() => _target.Equals(_source, StringComparison.OrdinalIgnoreCase);
     }
 
+    [Description("字符串比较")]
     public static class StringComparerBenchmarks
     {
         public static void Run()

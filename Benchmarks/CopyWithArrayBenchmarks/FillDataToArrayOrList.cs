@@ -1,15 +1,11 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.ComponentModel;
 
 [MemoryDiagnoser]
-public class CopyWithArray
+public class FillDataToArrayOrList
 {
     private IEnumerable<int> _list = Enumerable.Range(0, 100000);
-
-    public CopyWithArray()
-    {
-        _list = Enumerable.Range(0, 100000);
-    }
 
     [Benchmark]
     public string[] ProcessWithArray()
@@ -49,10 +45,11 @@ public class CopyWithArray
 
 }
 
-public static class CopyWithArrayBenchmarks
+[Description("向数组或列表填充固定数量的数据")]
+public static class FillDataToArrayOrListBenchmarks
 {
     public static void Run()
     {
-        BenchmarkRunner.Run<CopyWithArray>();
+        BenchmarkRunner.Run<FillDataToArrayOrList>();
     }
 }

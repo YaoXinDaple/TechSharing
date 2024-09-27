@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using System.ComponentModel;
 
 namespace Benchmarks.StringConstructorBenchmarsk
 {
@@ -41,6 +42,7 @@ namespace Benchmarks.StringConstructorBenchmarsk
         }
     }
 
+    [Description("字符串反转")]
     public static class StringConstructorBenchmarks
     {
         public static void Run()

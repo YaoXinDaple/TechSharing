@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using System.ComponentModel;
 using System.Text;
 
 namespace Benchmarks.StringSplitBenchmarsk
@@ -30,6 +31,7 @@ namespace Benchmarks.StringSplitBenchmarsk
         }
     }
 
+    [Description("字符串拼接和StringBuilder")]
     public static class StringBuilderVsStringConcatBenchmarks
     {
         public static void Run()

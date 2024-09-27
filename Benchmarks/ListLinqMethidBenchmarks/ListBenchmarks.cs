@@ -1,18 +1,20 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.ComponentModel;
 
 namespace Benchmarks.ListLinqMethidBenchmarks
 {
 
+    [Description("List或Enumerable的一些Linq方法执行效率")]
     public static class ListBenchmarks
     {
         public static void Run()
         {
-            //BenchmarkRunner.Run<ListBenchmark>();
-            //BenchmarkRunner.Run<FindVsFirstOrDefaultBenchmark>();
-            //BenchmarkRunner.Run<ListAnyVsExistsBenchmark>();
-            //BenchmarkRunner.Run<ArrayAnyVsExistsBenchmark>();
-            //BenchmarkRunner.Run<EnumerableAnyVsExistsBechmark>();
+            BenchmarkRunner.Run<ListBenchmark>();
+            BenchmarkRunner.Run<FindVsFirstOrDefaultBenchmark>();
+            BenchmarkRunner.Run<ListAnyVsExistsBenchmark>();
+            BenchmarkRunner.Run<ArrayAnyVsExistsBenchmark>();
+            BenchmarkRunner.Run<EnumerableAnyVsExistsBechmark>();
             BenchmarkRunner.Run<AllVsTrueForAllBenchmark>();
         }
     }

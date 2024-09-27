@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.ComponentModel;
 
 namespace Benchmarks.StringContainsBenchmarsk
 {
@@ -25,6 +26,7 @@ namespace Benchmarks.StringContainsBenchmarsk
         public bool Any() => testString.Any(c => c.Equals(testChar));
     }
 
+    [Description("字符串包含")]
     public static class StringContainsBenchmarks
     {
         public static void Run()
