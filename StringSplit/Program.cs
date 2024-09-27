@@ -26,9 +26,6 @@
 
 
 //字符串的构造函数
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
-using System.Text;
 
 //string str = new string('=', 20);
 
@@ -41,30 +38,3 @@ using System.Text;
 //var reversedArr = chars.Reverse().ToArray();
 //string str2 = new string(reversedArr);
 
-BenchmarkRunner.Run<StringBuilderVsStringConcat>();
-
-[MemoryDiagnoser]
-public class StringBuilderVsStringConcat
-{
-    [Benchmark]
-    public string StringConcat()
-    {
-        string result = string.Empty;
-        for (int i = 0; i < 1000; i++)
-        {
-            result += i;
-        }
-        return result;
-    }
-
-    [Benchmark]
-    public string StringBuilder()
-    {
-        var sb = new StringBuilder();
-        for (int i = 0; i < 1000; i++)
-        {
-            sb.Append(i);
-        }
-        return sb.ToString();
-    }
-}
