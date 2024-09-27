@@ -10,5 +10,10 @@
             }
             return Task.FromResult(false);
         }
+
+        public Task<bool> IsRegisteredCompanyName(string companyName)
+        {
+            return Task.FromResult(companyName.Contains("有限公司"));
+        }
     }
 }
