@@ -28,6 +28,7 @@ while (true)
                }
     };
 
+    using var channel = GrpcChannel.ForAddress("https://localhost:7011" , option);
 
     using var channel = GrpcChannel.ForAddress("https://localhost:7011"
         , new GrpcChannelOptions { CompressionProviders = new List<ICompressionProvider>() }
