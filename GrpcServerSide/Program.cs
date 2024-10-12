@@ -15,6 +15,7 @@ builder.Services.AddTransient<ServerLogginInterceptor>();
 // Add services to the container.
 builder.Services.AddGrpc(options =>
 {
+    //设置服务端压缩算法
     options.ResponseCompressionAlgorithm = "gzip";
     options.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.SmallestSize;
     options.Interceptors.Add<ServerLogginInterceptor>();
@@ -23,12 +24,12 @@ builder.Services.AddGrpc(options =>
 builder.Services.AddResponseCompression(options =>
 {
     options.EnableForHttps = true;
-    options.Providers.Add<BrotliCompressionProvider>();
-    options.Providers.Add<GzipCompressionProvider>();
+    //options.Providers.Add<BrotliCompressionProvider>();
+    //options.Providers.Add<GzipCompressionProvider>();
 });
 
 var app = builder.Build();
-app.UseResponseCompression();
+//app.UseResponseCompression();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<GreeterService>();

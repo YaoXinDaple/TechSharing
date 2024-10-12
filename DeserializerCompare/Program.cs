@@ -6,13 +6,14 @@ using Comparer;
 using Google.Protobuf;
 using Newtonsoft.Json;
 using System.Text;
+using ProtoBuf;
+using System;
 
 Console.WriteLine("Hello, World!");
 
 BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, new DebugInProcessConfig());
-//var summary = BenchmarkRunner.Run<SerializationBenchmarks>();
+//var summary = BenchmarkRunner.Run<DeserializationBenchmarks>();
 
-//[SimpleJob(launchCount: 1, warmupCount: 1, iterationCount: 1)]
 [MemoryDiagnoser]
 public class DeserializationBenchmarks
 {
@@ -31,7 +32,12 @@ public class DeserializationBenchmarks
         using (var ms = new MemoryStream())
         {
             person.WriteTo(ms);
-            protobufData =  ms.ToArray();
+
+            // 将 MemoryStream 转换为字节数组
+            protobufData = ms.ToArray();
+
+            // 输出序列化后的字节数组长度
+            Console.WriteLine($"Serialized data length: {protobufData.Length}");
         }
 
         // 初始化 JSON 数据

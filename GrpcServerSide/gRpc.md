@@ -1,26 +1,14 @@
 ## gRpc
 
 ### 1. What is gRpc?
-- gRPC is a high performance, open-source universal RPC framework
-- gRPC was developed by Google and is based on the HTTP/2 protocol
-- gRPC uses Protocol Buffers as the interface definition language
+- gRPC is a high performance, open-source universal RPC framework(¸ßĞÔÄÜ£¬¿çÆ½Ì¨)
+- gRPC was developed by Google and is based on the HTTP/2 protocol£¨»ùÓÚHttp2Ğ­Òé£¬¶àÂ·¸´ÓÃ£©
 
 
 ### 2. What is Protocol Buffers?
 - Protocol Buffers is a method developed by Google to serialize structured data
-- Protocol Buffers is used to serialize structured data into a binary format
-- Protocol Buffers is used to serialize structured data into a text format
+- Protocol Buffers is used to serialize structured data into a binary format£¨¶ş½øÖÆ£¬·´ĞòÁĞ»¯ĞÔÄÜ±Èjson¸ß£©
 
-
-### 3. What is the difference between gRPC and REST?
-- gRPC is a high performance, open-source universal RPC framework
-- REST is an architectural style for building distributed systems
-- gRPC is based on the HTTP/2 protocol
-- REST is based on the HTTP/1.1 protocol
-- gRPC uses Protocol Buffers as the interface definition language
-- REST uses JSON or XML as the interface definition language
-- gRPC is designed to be efficient, fast, and language-independent
-- REST is designed to be simple, flexible, and language-independent
 
 ## HTTP/2
 	Ëµµ½Http/2£¬ÎÒÃÇÊ×ÏÈÒªÁË½âÒ»ÏÂHttp/1.1µÄÎÊÌâ£¬Http/1.1µÄÎÊÌâÖ÷ÒªÓĞ£º
@@ -47,3 +35,41 @@ HTTP/2ÖĞ£¬ËäÈ»Í¨¹ı¶àÂ·¸´ÓÃ¼¼Êõ½â¾öÁËÓ¦ÓÃ²ãÃæµÄ¶ÓÍ·×èÈûÎÊÌâ£¬µ«ÔÚTCP²ãÃæÈÔÈ»´æÔÚ¶
 Http/3ÊÇ»ùÓÚQUICĞ­ÒéµÄ£¬QUICĞ­ÒéÊÇ»ùÓÚUDPĞ­ÒéµÄ £¬¶øÖ®Ç°µÄHTTPĞ­Òé¶¼ÊÇ»ùÓÚTCPĞ­ÒéµÄ¡£
 QUICĞ­Òé¿ÉÒÔ½â¾öTCPĞ­ÒéµÄÒ»Ğ©ÎÊÌâ£¬±ÈÈçËµÁ¬½ÓµÄ½¨Á¢ºÍ¶Ï¿ªµÄ¿ªÏú£¬ÒÔ¼°Á¬½ÓµÄ×èÈûÎÊÌâ¡£
 ÁíÍâÔÚÎÄ¼şÉÏ´«¹ı³ÌÖĞ£¬ÍøÂç»·¾³ÇĞ»»Ê±£¬TCPĞ­Òé»áµ¼ÖÂÎÄ¼şÉÏ´«Ê§°Ü£¬µ«QUICÖ§³Ö¿ìËÙÁ¬½Ó½¨Á¢£¬¿ÉÒÔÔÚµ¥¸öÍù·µÖĞÍê³ÉÁ¬½Ó½¨Á¢ºÍÃÜÔ¿Ğ­ÉÌ£¬ÉõÖÁÔÚµÚ¶ş´ÎÁ¬½ÓÊ±ÊµÏÖ0-RTT£¨ÁãÍù·µÊ±¼ä£©µÄÊı¾İ´«Êä
+
+
+## ÉèÖÃgRpc Client
+	²é¿´ConsumerÏîÄ¿ÎÄ¼ş
+
+## ·´ĞòÁĞ»¯ĞÔÄÜ»ù×¼²âÊÔ½á¹û
+	DeserializerCompareÏîÄ¿
+
+## ËÄÖÖgRpc·şÎñ½»»¥·½Ê½
+	Unary 
+	Client Streaming
+	Server Streaming
+	Bidirectional Streaming
+
+## ÏìÓ¦ÌåÑ¹Ëõ
+	1. ·şÎñ¶ËÖ¸¶¨Ñ¹ËõËã·¨
+	2. ¿Í»§¶ËÄ¬ÈÏÖ§³ÖgzipÑ¹Ëõ
+
+## Channel¸´ÓÃ
+	Channel´´½¨ÊÇÒ»¸ö°º¹óµÄ²Ù×÷£¬ËùÒÔÓ¦µ±¸´ÓÃChannel
+	1. gRpcClientFactory
+	https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-6.0
+	
+	2.// ×¢²áµ¥ÀıµÄ GrpcChannel
+    var channel = GrpcChannel.ForAddress("https://localhost:5001");
+    services.AddSingleton(channel);
+
+    // ×¢²á gRPC ¿Í»§¶Ë£¬¸´ÓÃÍ¬Ò»¸ö channel
+    services.AddScoped(greeterClient => new Greeter.GreeterClient(channel));
+    services.AddScoped(anotherClient => new AnotherService.AnotherServiceClient(channel));
+
+## À¹½ØÆ÷ Interceptor
+
+
+
+## StackTrace
+## FrozenDictionary
+# AsSpan(StringConstructorÏîÄ¿)

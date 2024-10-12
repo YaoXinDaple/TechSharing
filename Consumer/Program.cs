@@ -14,11 +14,24 @@ var loggerFactory = LoggerFactory.Create(builder =>
 // 创建日志记录器
 var logger = loggerFactory.CreateLogger<Program>();
 
+
+
+
 while (true)
 {
 
     Console.WriteLine("点击任意键开始...");
     Console.ReadKey();
+
+
+    //设置CompressionProviders为空列表，禁用压缩
+    //using var channel = GrpcChannel.ForAddress("https://localhost:7011" 
+    //        , new GrpcChannelOptions { 
+    //            CompressionProviders = new List<ICompressionProvider>() 
+    //        }
+    //    );
+
+
 
     var option = new GrpcChannelOptions
     {
@@ -30,23 +43,8 @@ while (true)
 
     using var channel = GrpcChannel.ForAddress("https://localhost:7011" , option);
 
-    using var channel = GrpcChannel.ForAddress("https://localhost:7011"
-        , new GrpcChannelOptions { CompressionProviders = new List<ICompressionProvider>() }
-        );
-
     var client = new GreeterServicDefinition.GreeterServicDefinitionClient(channel);
 
-
-    //var metadata = new Metadata { { "grpc-accept-encoding", "gzip" }, { "accept-encoding", "gzip" } };
-
-
-
-    var metadata = new Metadata
-    {
-        { "grpc-accept-encoding", "gzip" },
-        { "accept-encoding", "gzip" }
-    };
-    var callOptions = new Grpc.Core.CallOptions(metadata);
 
     //一次调用，一次响应
     var response = client.Unary(new HelloRequest { Name = "Client" });
