@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +21,17 @@ if (app.Environment.IsDevelopment())
     {
         options.RouteTemplate = "openapi/{documentName}.json";
     });
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        options
+            .WithTitle("My custom API")
+            .WithTheme(ScalarTheme.Default)//指定内置主题
+            .WithSidebar(true)//是否显示左侧接口列表
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)//生成的调用接口的代码语言和实现方式
+            //.WithPreferredScheme("ApiKey")
+            //.WithApiKeyAuthentication(x => x.Token = "my-api-key")
+            ;
+    });
 }
 
 app.UseHttpsRedirection();
