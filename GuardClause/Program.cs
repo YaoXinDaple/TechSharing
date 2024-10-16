@@ -97,6 +97,8 @@ void PlaceAndShipOrderGuardClause(Account account, List<Item> items, string ship
     }
 
     order1.ShipOrder();
+
+    //卫语句，执行关键逻辑之前的判断就像是一个守卫，当不满足条件时，直接返回，不再继续执行后续代码
 }
 
 public class Order
