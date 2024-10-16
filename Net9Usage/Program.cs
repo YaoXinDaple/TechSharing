@@ -1,4 +1,4 @@
-
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,9 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    //添加下面这一行，之后打开 https://localhost:7203/scalar/v1，即可看到Scalar页面
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
