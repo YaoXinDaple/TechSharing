@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuardClause", "GuardClause"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuardClause", "GuardClause\GuardClause.csproj", "{EE821644-2A58-4F7B-A87A-0DF77E0381DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediatR", "MediatR", "{4FCAEF35-C345-4D47-A1F8-6EE3348F7680}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRUsage", "MediatRUsage\MediatRUsage.csproj", "{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +111,10 @@ Global
 		{EE821644-2A58-4F7B-A87A-0DF77E0381DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE821644-2A58-4F7B-A87A-0DF77E0381DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE821644-2A58-4F7B-A87A-0DF77E0381DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +134,7 @@ Global
 		{8DC85419-08E7-47DC-9191-D9D9DE8D7A0B} = {ED735326-33E0-4E88-980D-4FCC89682626}
 		{E6F6A3A4-1141-49E8-8DA7-B57FB15453E6} = {ED735326-33E0-4E88-980D-4FCC89682626}
 		{EE821644-2A58-4F7B-A87A-0DF77E0381DC} = {A3A03EC6-C03F-4A15-A14E-D47F3574329C}
+		{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E} = {4FCAEF35-C345-4D47-A1F8-6EE3348F7680}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
