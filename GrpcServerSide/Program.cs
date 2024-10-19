@@ -4,6 +4,14 @@ using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ConfigureEndpointDefaults(listenOptions =>
+    {
+        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1AndHttp2;
+    });
+});
+
 builder.Logging.ClearProviders(); // 清除所有默认日志提供程序
 builder.Logging.AddConsole()
        .AddFilter("Microsoft.AspNetCore", LogLevel.Trace)

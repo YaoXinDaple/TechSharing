@@ -36,6 +36,21 @@ Http/3ÊÇ»ùÓÚQUICĞ­ÒéµÄ£¬QUICĞ­ÒéÊÇ»ùÓÚUDPĞ­ÒéµÄ £¬¶øÖ®Ç°µÄHTTPĞ­Òé¶¼ÊÇ»ùÓÚTCPĞ­Ò
 QUICĞ­Òé¿ÉÒÔ½â¾öTCPĞ­ÒéµÄÒ»Ğ©ÎÊÌâ£¬±ÈÈçËµÁ¬½ÓµÄ½¨Á¢ºÍ¶Ï¿ªµÄ¿ªÏú£¬ÒÔ¼°Á¬½ÓµÄ×èÈûÎÊÌâ¡£
 ÁíÍâÔÚÎÄ¼şÉÏ´«¹ı³ÌÖĞ£¬ÍøÂç»·¾³ÇĞ»»Ê±£¬TCPĞ­Òé»áµ¼ÖÂÎÄ¼şÉÏ´«Ê§°Ü£¬µ«QUICÖ§³Ö¿ìËÙÁ¬½Ó½¨Á¢£¬¿ÉÒÔÔÚµ¥¸öÍù·µÖĞÍê³ÉÁ¬½Ó½¨Á¢ºÍÃÜÔ¿Ğ­ÉÌ£¬ÉõÖÁÔÚµÚ¶ş´ÎÁ¬½ÓÊ±ÊµÏÖ0-RTT£¨ÁãÍù·µÊ±¼ä£©µÄÊı¾İ´«Êä
 
+## gRpc¼æÈİĞÔ
+Windows10¼°Ö®Ç°µÄÏµÍ³,¿ª·¢Ê±Ê¹ÓÃIIS Express£¬²»Ö§³ÖÔËĞĞgRpc·şÎñ
+	ĞèÒªĞŞ¸ÄApplicationBuilder.UseKestrel()µÄÅäÖÃ
+
+```csharp
+builder.WebHost.ConfigureKestrel(serverOptions =>
+    {
+        serverOptions.ConfigureEndpointDefaults(listenOptions =>
+        {
+            listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1AndHttp2;
+        });
+    });
+```
+
+Windows Server 2012(Ö®Ç°?)¿ÉÒÔÕı³£ÔËĞĞ
 
 ## ÉèÖÃgRpc Client
 	²é¿´ConsumerÏîÄ¿ÎÄ¼ş
@@ -48,6 +63,8 @@ QUICĞ­Òé¿ÉÒÔ½â¾öTCPĞ­ÒéµÄÒ»Ğ©ÎÊÌâ£¬±ÈÈçËµÁ¬½ÓµÄ½¨Á¢ºÍ¶Ï¿ªµÄ¿ªÏú£¬ÒÔ¼°Á¬½ÓµÄ×èÈûÎ
 	Client Streaming
 	Server Streaming
 	Bidirectional Streaming
+
+## ËùÓĞÇëÇó¶¼ÊÇPostÇëÇó
 
 ## ÏìÓ¦ÌåÑ¹Ëõ
 	1. ·şÎñ¶ËÖ¸¶¨Ñ¹ËõËã·¨
@@ -71,5 +88,8 @@ QUICĞ­Òé¿ÉÒÔ½â¾öTCPĞ­ÒéµÄÒ»Ğ©ÎÊÌâ£¬±ÈÈçËµÁ¬½ÓµÄ½¨Á¢ºÍ¶Ï¿ªµÄ¿ªÏú£¬ÒÔ¼°Á¬½ÓµÄ×èÈûÎ
 
 
 ## StackTrace
+ÔÚÏîÄ¿µ÷ÊÔÊ±£¬»ñÈ¡µ÷ÓÃ¶ÑÕ»ĞÅÏ¢£¬¶¨Î»ÊÇÄÄÒ»´Îµ÷ÓÃ³öÏÖµÄÎÊÌâ
+
+²é¿´GetStackTraceÏîÄ¿
 ## FrozenDictionary
-# AsSpan(StringConstructorÏîÄ¿)
+## AsSpan(StringConstructorÏîÄ¿)
