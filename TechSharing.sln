@@ -37,13 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmarks\Be
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scalar", "Scalar", "{ED735326-33E0-4E88-980D-4FCC89682626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net8Usage", "Net8Usage\Net8Usage.csproj", "{8DC85419-08E7-47DC-9191-D9D9DE8D7A0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net8Usage", "Net8Usage\Net8Usage.csproj", "{8DC85419-08E7-47DC-9191-D9D9DE8D7A0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net9Usage", "Net9Usage\Net9Usage.csproj", "{E6F6A3A4-1141-49E8-8DA7-B57FB15453E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net9Usage", "Net9Usage\Net9Usage.csproj", "{E6F6A3A4-1141-49E8-8DA7-B57FB15453E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuardClause", "GuardClause", "{A3A03EC6-C03F-4A15-A14E-D47F3574329C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuardClause", "GuardClause\GuardClause.csproj", "{EE821644-2A58-4F7B-A87A-0DF77E0381DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuardClause", "GuardClause\GuardClause.csproj", "{EE821644-2A58-4F7B-A87A-0DF77E0381DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IAsyncEnumerabe", "IAsyncEnumerabe", "{1BD0947D-3439-4570-9F0C-E97815307B5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
