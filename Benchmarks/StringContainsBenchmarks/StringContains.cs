@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Running;
 using System.ComponentModel;
 
-namespace Benchmarks.StringContainsBenchmarsk
+namespace Benchmarks.StringContainsBenchmarks
 {
     public class StringContains
     {
