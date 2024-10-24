@@ -49,17 +49,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IAsyncEnumerabe", "IAsyncEn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediatR", "MediatR", "{4FCAEF35-C345-4D47-A1F8-6EE3348F7680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRUsage", "MediatRUsage\MediatRUsage.csproj", "{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatRUsage", "MediatRUsage\MediatRUsage.csproj", "{22C4CF8F-AEC3-42D2-A8DC-1FDCB9FF4E7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{46577590-6327-4633-B2ED-E475F75E5E18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRWebApi", "MediatRWebApi\MediatRWebApi.csproj", "{4E691ECF-3891-4B83-BEE4-2B43CAE092DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatRWebApi", "MediatRWebApi\MediatRWebApi.csproj", "{4E691ECF-3891-4B83-BEE4-2B43CAE092DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRDomain", "MediatRDomain\MediatRDomain.csproj", "{B8767E15-1CA1-43D6-8E28-C9F8F90CE90C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatRDomain", "MediatRDomain\MediatRDomain.csproj", "{B8767E15-1CA1-43D6-8E28-C9F8F90CE90C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRInfrastructure", "MediatRInfrastructure\MediatRInfrastructure.csproj", "{1E139F22-DC1A-47A7-AD5E-733B16E2C132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatRInfrastructure", "MediatRInfrastructure\MediatRInfrastructure.csproj", "{1E139F22-DC1A-47A7-AD5E-733B16E2C132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRPresentation", "MediatRPresentation\MediatRPresentation.csproj", "{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatRPresentation", "MediatRPresentation\MediatRPresentation.csproj", "{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuilderPattern", "BuilderPattern", "{7CB310E5-B4F8-446B-886F-A9548392F845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPattern\BuilderPattern.csproj", "{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +147,10 @@ Global
 		{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +176,7 @@ Global
 		{B8767E15-1CA1-43D6-8E28-C9F8F90CE90C} = {46577590-6327-4633-B2ED-E475F75E5E18}
 		{1E139F22-DC1A-47A7-AD5E-733B16E2C132} = {46577590-6327-4633-B2ED-E475F75E5E18}
 		{9AC98514-ECAE-4BCA-B12A-F9867A0F68F1} = {46577590-6327-4633-B2ED-E475F75E5E18}
+		{1130F9E3-B0BE-4F8E-AAC2-FE829DDEACB5} = {7CB310E5-B4F8-446B-886F-A9548392F845}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
