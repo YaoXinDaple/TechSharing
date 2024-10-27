@@ -1,8 +1,5 @@
-﻿
-using Benchmarks.AsSpanBenchmarks;
-using Benchmarks.FrozenDictionaryBenchmarks;
+﻿using Benchmarks.FrozenDictionaryBenchmarks;
 using Benchmarks.ListLinqMethidBenchmarks;
-using Benchmarks.MoreLinqNugetBenchmarks;
 using Benchmarks.StringComparisonBenchmarks;
 using Benchmarks.StringConstructorBenchmarsk;
 using Benchmarks.StringContainsBenchmarks;
@@ -18,11 +15,7 @@ List<Type> BenchmarkMethods = new List<Type>
     typeof(StringComparerBenchmarks),
     typeof(StringConstructorBenchmarks),
     typeof(StringContainsBenchmarks),
-    typeof(StringBuilderVsStringConcatBenchmarks),
-    typeof(MoreLinqBenchmarks),
-    typeof(AsSpanListSumBenchmarks),
-    typeof(ObjectFindDuplicateNameBenchmark),
-    typeof(OrderByBenchmark)
+    typeof(StringBuilderVsStringConcatBenchmarks)
 };
 
 
