@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Text;
 
-namespace Benchmarks.StringSplitBenchmarsk
+namespace Benchmarks.StringSplitBenchmarks
 {
 
     [MemoryDiagnoser]

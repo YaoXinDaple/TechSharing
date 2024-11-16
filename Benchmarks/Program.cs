@@ -1,10 +1,9 @@
-﻿
-using Benchmarks.FrozenDictionaryBenchmarks;
+﻿using Benchmarks.FrozenDictionaryBenchmarks;
 using Benchmarks.ListLinqMethidBenchmarks;
 using Benchmarks.StringComparisonBenchmarks;
 using Benchmarks.StringConstructorBenchmarsk;
-using Benchmarks.StringContainsBenchmarsk;
-using Benchmarks.StringSplitBenchmarsk;
+using Benchmarks.StringContainsBenchmarks;
+using Benchmarks.StringSplitBenchmarks;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -39,7 +38,7 @@ while (true)
     Console.ForegroundColor = ConsoleColor.White;
     Console.Write("请输入你想运行的基准测试的序号");
     Console.ForegroundColor = ConsoleColor.Green;
-    Console.Write($"(1-{BenchmarkMethods.Count - 1}):");
+    Console.Write($"(1-{BenchmarkMethods.Count}):");
     var inputStr = Console.ReadLine();
     if (int.TryParse(inputStr, out int number))
     {
