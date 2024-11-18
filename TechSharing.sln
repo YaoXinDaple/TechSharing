@@ -79,6 +79,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClientResilience", "Htt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientRecilience", "HttpClientRecilience\HttpClientRecilience.csproj", "{377FE9C4-AF21-418E-99C7-9EE7B6F2BCC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpResourceProvider", "HttpResourceProvider\HttpResourceProvider.csproj", "{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,10 @@ Global
 		{377FE9C4-AF21-418E-99C7-9EE7B6F2BCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{377FE9C4-AF21-418E-99C7-9EE7B6F2BCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{377FE9C4-AF21-418E-99C7-9EE7B6F2BCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +217,7 @@ Global
 		{A3C848ED-B0F4-432A-B74E-CCBA9CA7623C} = {0E2BB83D-F04C-4621-9AE4-2E908EA7F3B7}
 		{E3350B8C-71D8-40DF-BAF6-D964E8C6323D} = {CB210B17-EB1E-4999-B539-133059C1B970}
 		{377FE9C4-AF21-418E-99C7-9EE7B6F2BCC9} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
+		{17D91AD1-B3B7-4432-A0FC-7C23DE77FBF5} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
