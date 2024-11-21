@@ -77,13 +77,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxExampleAPI", "OutboxE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClientResilience", "HttpClientResilience", "{A1235761-2D22-4BCE-9BD6-BB2397F77466}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.ApiService", "..\AspireWithResilientHttpClient\AspireWithResilientHttpClient.ApiService\AspireWithResilientHttpClient.ApiService.csproj", "{0A1480C8-CA26-40F2-9E5A-CDD363E5F342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.ApiService", "AspireWithResilientHttpClient.ApiService\AspireWithResilientHttpClient.ApiService.csproj", "{07E218B1-5AD5-4BE8-9BE6-75CC0058B094}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.AppHost", "..\AspireWithResilientHttpClient\AspireWithResilientHttpClient.AppHost\AspireWithResilientHttpClient.AppHost.csproj", "{0B566618-7BB1-4D19-94AD-4C66232A30AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.AppHost", "AspireWithResilientHttpClient.AppHost\AspireWithResilientHttpClient.AppHost.csproj", "{91102EA1-71C8-4EFF-A16D-905E2738DA33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.ServiceDefaults", "..\AspireWithResilientHttpClient\AspireWithResilientHttpClient.ServiceDefaults\AspireWithResilientHttpClient.ServiceDefaults.csproj", "{5CA1C296-AFC4-46B8-9229-25A787352313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.ServiceDefaults", "AspireWithResilientHttpClient.ServiceDefaults\AspireWithResilientHttpClient.ServiceDefaults.csproj", "{2ED3C668-1266-45E3-8E27-EF0FADA1CE80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.Web", "..\AspireWithResilientHttpClient\AspireWithResilientHttpClient.Web\AspireWithResilientHttpClient.Web.csproj", "{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireWithResilientHttpClient.Web", "AspireWithResilientHttpClient.Web\AspireWithResilientHttpClient.Web.csproj", "{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,22 +183,22 @@ Global
 		{E3350B8C-71D8-40DF-BAF6-D964E8C6323D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3350B8C-71D8-40DF-BAF6-D964E8C6323D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3350B8C-71D8-40DF-BAF6-D964E8C6323D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A1480C8-CA26-40F2-9E5A-CDD363E5F342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A1480C8-CA26-40F2-9E5A-CDD363E5F342}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A1480C8-CA26-40F2-9E5A-CDD363E5F342}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A1480C8-CA26-40F2-9E5A-CDD363E5F342}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B566618-7BB1-4D19-94AD-4C66232A30AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B566618-7BB1-4D19-94AD-4C66232A30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B566618-7BB1-4D19-94AD-4C66232A30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B566618-7BB1-4D19-94AD-4C66232A30AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CA1C296-AFC4-46B8-9229-25A787352313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CA1C296-AFC4-46B8-9229-25A787352313}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CA1C296-AFC4-46B8-9229-25A787352313}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CA1C296-AFC4-46B8-9229-25A787352313}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E218B1-5AD5-4BE8-9BE6-75CC0058B094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E218B1-5AD5-4BE8-9BE6-75CC0058B094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E218B1-5AD5-4BE8-9BE6-75CC0058B094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E218B1-5AD5-4BE8-9BE6-75CC0058B094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91102EA1-71C8-4EFF-A16D-905E2738DA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91102EA1-71C8-4EFF-A16D-905E2738DA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91102EA1-71C8-4EFF-A16D-905E2738DA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91102EA1-71C8-4EFF-A16D-905E2738DA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED3C668-1266-45E3-8E27-EF0FADA1CE80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED3C668-1266-45E3-8E27-EF0FADA1CE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED3C668-1266-45E3-8E27-EF0FADA1CE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED3C668-1266-45E3-8E27-EF0FADA1CE80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,10 +228,10 @@ Global
 		{E8E550A9-7452-49CD-A04B-76333DC54BD0} = {CB210B17-EB1E-4999-B539-133059C1B970}
 		{A3C848ED-B0F4-432A-B74E-CCBA9CA7623C} = {0E2BB83D-F04C-4621-9AE4-2E908EA7F3B7}
 		{E3350B8C-71D8-40DF-BAF6-D964E8C6323D} = {CB210B17-EB1E-4999-B539-133059C1B970}
-		{0A1480C8-CA26-40F2-9E5A-CDD363E5F342} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
-		{0B566618-7BB1-4D19-94AD-4C66232A30AF} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
-		{5CA1C296-AFC4-46B8-9229-25A787352313} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
-		{7197D4AA-0E9D-4F52-B2E7-D253A0D32E72} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
+		{07E218B1-5AD5-4BE8-9BE6-75CC0058B094} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
+		{91102EA1-71C8-4EFF-A16D-905E2738DA33} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
+		{2ED3C668-1266-45E3-8E27-EF0FADA1CE80} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
+		{2BE78A2A-DF69-4CC1-9E22-D39D14A7C500} = {A1235761-2D22-4BCE-9BD6-BB2397F77466}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
