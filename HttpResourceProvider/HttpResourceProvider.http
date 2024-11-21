@@ -1,6 +1,0 @@
-@HttpResourceProvider_HostAddress = http://localhost:5225
-
-GET {{HttpResourceProvider_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
