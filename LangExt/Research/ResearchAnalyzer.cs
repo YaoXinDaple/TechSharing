@@ -1,4 +1,4 @@
-﻿namespace Nullable
+﻿namespace Nullable.Research
 {
     internal class ResearchAnalyzer
     {

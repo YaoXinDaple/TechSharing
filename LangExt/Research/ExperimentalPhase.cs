@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nullable
+namespace Nullable.Research
 {
     public class ExperimentalPhase
     {

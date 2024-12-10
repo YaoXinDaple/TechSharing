@@ -1,6 +1,6 @@
 ﻿using Nullable.Research;
 
-namespace Nullable
+namespace Nullable.Research
 {
     public class ExperimentTrend
     {
