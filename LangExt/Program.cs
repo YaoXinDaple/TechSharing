@@ -30,7 +30,7 @@ var report = analyzer.GenerateResearchReport(project);
 if (report != null)
 {
     Console.WriteLine($"Project Name: {report.ProjectName}");
-    Console.WriteLine($"stages:{string.Join("->", report.Stages)}");
+    Console.WriteLine($"stages:{string.Join("->", report.Stages ?? [])}");
     Console.WriteLine($"Experiment Count: {report.ExperimentCount}");
     Console.WriteLine($"Latest Confidence Score: {report.LatestConfidenceScore?.ToString() ?? "N/A"}");
     Console.WriteLine($"Trend: {report.Trend?.TrendDirection.ToString() ?? "N/A"}");
@@ -42,3 +42,5 @@ else
 {
     Console.WriteLine("Unable to generate report.");
 }
+
+Console.ReadKey();
