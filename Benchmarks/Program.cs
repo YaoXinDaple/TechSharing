@@ -1,4 +1,5 @@
-﻿using Benchmarks.FrozenDictionaryBenchmarks;
+﻿using Benchmarks.FindVsFirstOrDefaultBenchmarks;
+using Benchmarks.FrozenDictionaryBenchmarks;
 using Benchmarks.ListLinqMethidBenchmarks;
 using Benchmarks.StringComparisonBenchmarks;
 using Benchmarks.StringConstructorBenchmarsk;
@@ -15,7 +16,8 @@ List<Type> BenchmarkMethods = new List<Type>
     typeof(StringComparerBenchmarks),
     typeof(StringConstructorBenchmarks),
     typeof(StringContainsBenchmarks),
-    typeof(StringBuilderVsStringConcatBenchmarks)
+    typeof(StringBuilderVsStringConcatBenchmarks),
+    typeof(FindVsFirstOrDefault)
 };
 
 
