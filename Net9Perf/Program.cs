@@ -42,7 +42,6 @@ while (true)
         }
         #endregion
 
-
         #region SearchValues
 
         //int count = 0;
@@ -61,7 +60,6 @@ while (true)
         ////Console.WriteLine($"出现次数：{count}");
 
         #endregion
-
     }
     sw.Stop();
     Helpers.Use(frequency);
