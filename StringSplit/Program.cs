@@ -38,3 +38,4 @@
 //var reversedArr = chars.Reverse().ToArray();
 //string str2 = new string(reversedArr);
 
+Console.ReadKey();
