@@ -17,7 +17,7 @@ List<Type> BenchmarkMethods = new List<Type>
     typeof(StringConstructorBenchmarks),
     typeof(StringContainsBenchmarks),
     typeof(StringBuilderVsStringConcatBenchmarks),
-    typeof(FindVsFirstOrDefault)
+    typeof(FindVsFirstOrDefaultNet8Net9)
 };
 
 
