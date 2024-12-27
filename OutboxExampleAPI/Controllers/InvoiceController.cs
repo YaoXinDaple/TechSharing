@@ -56,14 +56,32 @@ namespace OutboxExampleAPI.Controllers
                 return new StandardEntry(ie.Id, ie.Number, ie.ItemName, ie.Amount, ie.IsDiscountLine);
             }).ToList();
 
+            //importEntries.ForEach(ie => {
+            //    var entryToUpdate = invoice.Entries.FirstOrDefault(e => e.Id == ie.Id);
+            //    if (entryToUpdate is not null)
+            //    {
+            //        entryToUpdate.IsDiscountLine = ie.IsDiscountLine;
+            //        entryToUpdate.Number = ie.Number;
+            //        entryToUpdate.Amount = ie.Amount;
+            //        entryToUpdate.ItemName = ie.ItemName;
+            //    }
+            //    else
+            //    {
+            //        invoice.Entries.Add(ie);
+            //        _appDbContext.Add(ie);
+            //    }
+            //});
+
             // 使用字典来查找现有的条目
             var existingEntries = invoice.Entries.ToDictionary(e => e.Id);
 
-            importEntries.ForEach(ie => {
+            importEntries.ForEach(ie =>
+            {
                 var existingEntry = invoice.Entries.FirstOrDefault(e => e.Id == ie.Id);
                 if (existingEntry is null)
                 {
                     invoice.Entries.Add(ie);
+                    _appDbContext.Add(ie);
                 }
                 else
                 {
@@ -75,11 +93,11 @@ namespace OutboxExampleAPI.Controllers
             });
 
             var deleteingEntris = invoice.Entries.Where(e => !importEntries.Select(ie => ie.Id).Contains(e.Id));
-            if (deleteingEntris.Count()>0)
+            if (deleteingEntris.Count() > 0)
             {
                 foreach (var item in deleteingEntris)
                 {
-                    invoice.Entries.Remove(item);
+                    _appDbContext.Remove(item);
                 }
             }
 
