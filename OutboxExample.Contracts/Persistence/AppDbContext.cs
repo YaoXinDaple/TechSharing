@@ -13,9 +13,16 @@ namespace OutboxExample.Contracts.Persistence
 
         }
         public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Invoice> Invoices { get; set; }
+
+        public DbSet<StandardEntry> InvoiceEntries { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ReservationMapping());
+            modelBuilder.ApplyConfiguration(new InvoiceMapping());
+            modelBuilder.ApplyConfiguration(new StandardEntryMapping());
             modelBuilder.AddOutboxMessageEntity();
             modelBuilder.AddOutboxStateEntity();
             modelBuilder.AddInboxStateEntity();
