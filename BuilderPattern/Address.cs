@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BuilderPattern
+﻿namespace BuilderPattern
 {
     public class Address
     {
         internal Address()
         {
         }
-        public string Street { get; init; }
-        public string Detail { get; init; }
-        public string Province { get; init; }
-        public string ZipCode { get; init; }
+        public string Street { get; init; } = string.Empty;
+        public string Detail { get; init; } = string.Empty;
+        public string Province { get; init; } = string.Empty;
+        public string ZipCode { get; init; } = string.Empty;
     }
 }

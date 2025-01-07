@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BuilderPattern
+﻿namespace BuilderPattern
 {
-    public  class AddressBuilder
+    public class AddressBuilder
     {
         public static AddressBuilder Empty() => new();
-        private string _street;
-        private string _detail;
-        private string _province;
-        private string _zipCode;
+        private string? _street;
+        private string? _detail;
+        private string? _province;
+        private string? _zipCode;
+
         private AddressBuilder()
         {
         }
@@ -40,10 +35,10 @@ namespace BuilderPattern
         {
             return new Address
             {
-                Street = _street,
-                Detail = _detail,
-                Province = _province,
-                ZipCode = _zipCode
+                Street = _street ?? string.Empty,
+                Detail = _detail ?? string.Empty,
+                Province = _province ?? string.Empty,
+                ZipCode = _zipCode ?? string.Empty
             };
         }
     }
