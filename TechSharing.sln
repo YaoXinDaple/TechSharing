@@ -99,6 +99,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net9Perfermance", "Net9Perf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net9Perf", "Net9Perf\Net9Perf.csproj", "{F928BB9C-E999-4C58-B3D3-B0FE2441403C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxItemCategorySync", "TaxItemCategorySync\TaxItemCategorySync.csproj", "{031BA88C-86F7-46D3-9577-DE55B77EC8CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,10 @@ Global
 		{F928BB9C-E999-4C58-B3D3-B0FE2441403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F928BB9C-E999-4C58-B3D3-B0FE2441403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F928BB9C-E999-4C58-B3D3-B0FE2441403C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031BA88C-86F7-46D3-9577-DE55B77EC8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031BA88C-86F7-46D3-9577-DE55B77EC8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031BA88C-86F7-46D3-9577-DE55B77EC8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031BA88C-86F7-46D3-9577-DE55B77EC8CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -266,6 +272,7 @@ Global
 		{D0814F2C-FCE7-4C5D-97BC-D0687050F38A} = {9C4DAE0C-334F-4A51-9A3E-349AEAE7DB86}
 		{B77FC9B8-D4F7-4848-8851-A55257594AF5} = {9C4DAE0C-334F-4A51-9A3E-349AEAE7DB86}
 		{F928BB9C-E999-4C58-B3D3-B0FE2441403C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{031BA88C-86F7-46D3-9577-DE55B77EC8CA} = {5FF5590A-6183-4F24-A331-E45F2EC08F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
