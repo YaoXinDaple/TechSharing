@@ -5,6 +5,6 @@ Console.WriteLine("Hello, World!");
 
 
 
-BenchmarkDotNet.Running.BenchmarkRunner.Run<SyncTaxItemCategoryBenchmark>();
+BenchmarkDotNet.Running.BenchmarkRunner.Run<IsValidEmailBenchmark>();
 
 Console.ReadLine();
