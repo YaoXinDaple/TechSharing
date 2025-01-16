@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-namespace TaxItemCategorySync
+namespace TaxItemCategorySync.IsEmail
 {
     [MemoryDiagnoser]
     public class IsValidEmailBenchmark

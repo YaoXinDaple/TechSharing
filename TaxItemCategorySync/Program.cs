@@ -1,16 +1,40 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
-using TaxItemCategorySync;
+using TaxItemCategorySync.GetValidEmail;
 
 Console.WriteLine("Hello, World!");
 
-BenchmarkDotNet.Running.BenchmarkRunner.Run<RegexMatchBenchmark>();
+BenchmarkDotNet.Running.BenchmarkRunner.Run<GetValidEmailBenchmark>();
 
 Console.ReadLine();
 
 
- bool IsValidEmailGroup([NotNullWhen(true)] ReadOnlySpan<char> str)
+List<string> GetValidEmailsWithSpan(string Email)
+{
+    if (string.IsNullOrWhiteSpace(Email))
+    {
+        return [];
+    }
+
+    var strSpan = Email.AsSpan();
+    Span<Range> ranges = stackalloc Range[3];
+    ReadOnlySpan<char> separators = [';', '；'];
+
+    //ranges从常量上定义了最大的邮箱地址数量之后，这里只会读取常量中设置的数量
+    int count = strSpan.SplitAny(ranges, separators);
+    List<string> emailList = new List<string>(count);
+
+    for (int i = 0; i < count; i++)
+    {
+        if (!IsEmail(strSpan[ranges[i]]))
+        {
+            emailList[i] = strSpan[ranges[i]].ToString();
+        }
+    }
+    return emailList;
+}
+bool IsValidEmailGroup([NotNullWhen(true)] ReadOnlySpan<char> str)
 {
     if (str.IsWhiteSpace())
     {

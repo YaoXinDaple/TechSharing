@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using TaxItemCategorySync.EntityFrameworkCore.LemonInvoiceSuiteDbcontext;
 
-namespace TaxItemCategorySync
+namespace TaxItemCategorySync.SyncTaxItemCategory
 {
     [MemoryDiagnoser]
     public class SyncTaxItemCategoryBenchmark
@@ -12,7 +12,7 @@ namespace TaxItemCategorySync
         {
             var dbcontext = new LemonInvoiceSuiteContext();
             lemonTaxItemCategories = dbcontext.LemonTaxItemCategories.ToList();
-            if (lemonTaxItemCategories.Count==0)
+            if (lemonTaxItemCategories.Count == 0)
             {
                 throw new InvalidOperationException("没有获取到LemonTaxItemCategories数据");
             }

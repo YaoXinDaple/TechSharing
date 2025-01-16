@@ -1,13 +1,13 @@
 ﻿using BenchmarkDotNet.Attributes;
 using System.Diagnostics.CodeAnalysis;
 
-namespace TaxItemCategorySync
+namespace TaxItemCategorySync.IsUscic
 {
     [MemoryDiagnoser]
     public class IsUscicBenchmark
     {
         [Params("1234567890Z", "1234567890I", "Z234567890Z", "I234567890I", "12345Z7890Z", "12345I7890I")]
-        public string USCIC  { get; set; }
+        public string USCIC { get; set; }
 
         private const string IllegalUscic = "IOSVZ";
 
@@ -48,8 +48,8 @@ namespace TaxItemCategorySync
 
             foreach (char c in span)
             {
-                if (!(char.IsDigit(c) || (c >= 'A' && c <= 'H') || (c >= 'J' && c <= 'N') ||
-                      (c >= 'P' && c <= 'R') || (c >= 'T' && c <= 'U') || (c >= 'W' && c <= 'Y')))
+                if (!(char.IsDigit(c) || c >= 'A' && c <= 'H' || c >= 'J' && c <= 'N' ||
+                      c >= 'P' && c <= 'R' || c >= 'T' && c <= 'U' || c >= 'W' && c <= 'Y'))
                 {
                     return false;
                 }

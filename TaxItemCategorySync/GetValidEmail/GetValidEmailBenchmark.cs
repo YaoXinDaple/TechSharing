@@ -2,13 +2,15 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-namespace TaxItemCategorySync
+namespace TaxItemCategorySync.GetValidEmail
 {
     [MemoryDiagnoser]
     public class GetValidEmailBenchmark
     {
 
-        [Params("dapleyx@gmail.com;502415032@qq.com;1551613@qq.com")]
+        [Params("dapleyx@gmail.com;502415032@qq.com;1582738173@qq.com；dapleyx@gmail.com;502415032@qq.com;1582738173@qq.com；",
+            "ihngosdlfjsolghdfogjfgjolegha;ofjwefegerhtsrjhytddddddstzzzzzzzjhtrh;hsedgaewgeragerg;frgarhbfghhjjkkegaergera",
+            "jlhgdrtjgishgfirehgijherofgiheroighoiaehfgjoeajlhgdrtjgishgfirehgijherofgiheroighoiaehfgjoeajlhgdrtjgishgfire")]
         public string Email { get; set; }
 
         [Benchmark]
@@ -32,7 +34,7 @@ namespace TaxItemCategorySync
             return validEmails;
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public List<string> GetValidEmailsWithSpan()
         {
             if (string.IsNullOrWhiteSpace(Email))
@@ -41,12 +43,22 @@ namespace TaxItemCategorySync
             }
 
             var strSpan = Email.AsSpan();
-            Span<Range> ranges = stackalloc Range[3];
+
             ReadOnlySpan<char> separators = [';', '；'];
+            if (!strSpan.ContainsAny(separators))
+            {
+                if (IsEmail(strSpan))
+                {
+                    return [Email];
+                }
+                return [];
+            }
+
+            Span<Range> ranges = stackalloc Range[3];
 
             //ranges从常量上定义了最大的邮箱地址数量之后，这里只会读取常量中设置的数量
             int count = strSpan.SplitAny(ranges, separators);
-            var emailList = new List<string>(count);
+            List<string> emailList = [];
 
             for (int i = 0; i < count; i++)
             {
@@ -61,6 +73,10 @@ namespace TaxItemCategorySync
         private bool IsEmail([NotNullWhen(true)] ReadOnlySpan<char> str)
         {
             if (str.IsWhiteSpace())
+            {
+                return false;
+            }
+            if (!str.Contains('@'))
             {
                 return false;
             }

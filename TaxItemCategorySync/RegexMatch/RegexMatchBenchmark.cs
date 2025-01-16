@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using System.Text.RegularExpressions;
 
-namespace TaxItemCategorySync
+namespace TaxItemCategorySync.RegexMatch
 {
     [MemoryDiagnoser]
     public class RegexMatchBenchmark
