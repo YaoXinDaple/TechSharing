@@ -11,8 +11,8 @@ Dictionary<string, int> frequency = [];
 var lookup = frequency.GetAlternateLookup<ReadOnlySpan<char>>();
 
 
-string[] names = ["宋江", "高俅", "林冲", "武松", "时迁", "方腊"];
-SearchValues<string> searchValues = SearchValues.Create(names,StringComparison.OrdinalIgnoreCase);
+//string[] names = ["宋江", "高俅", "林冲", "武松", "时迁", "方腊"];
+//SearchValues<string> searchValues = SearchValues.Create(names,StringComparison.OrdinalIgnoreCase);
 
 Stopwatch sw = new();
 while (true)
@@ -21,7 +21,6 @@ while (true)
     sw.Restart();
     for (int trial = 0; trial < 10; trial++)
     {
-
         #region 正则匹配模式 Matches
         //foreach (Match m in Helpers.Words().Matches(text))
         //{
@@ -52,7 +51,6 @@ while (true)
         //} 
         #endregion
 
-
         #region Split
 
         //foreach (var m in Helpers.WhiteSpace().Split(text))
@@ -68,30 +66,29 @@ while (true)
         //    }
         //}
 
-        foreach (var m in text.Split(' '))
-        {
-            var word = m;
-            if (frequency.ContainsKey(word))
-            {
-                frequency[word]++;
-            }
-            else
-            {
-                frequency[word] = 1;
-            }
-        }
+        //foreach (var m in text.Split(Environment.NewLine))
+        //{
+        //    var word = m;
+        //    if (frequency.TryGetValue(word, out int value))
+        //    {
+        //        frequency[word] = ++value;
+        //    }
+        //    else
+        //    {
+        //        frequency[word] = 1;
+        //    }
+        //}
 
         #endregion
-
 
         #region EnumerateSplits
         foreach (var range in Helpers.WhiteSpace().EnumerateSplits(text))
         {
-            ////使用下标访问字符串
+            //使用下标访问字符串
             //var word = text[range];
-            //if (frequency.ContainsKey(word))
+            //if (frequency.TryGetValue(word, out int value))
             //{
-            //    frequency[word]++;
+            //    frequency[word] = ++value;
             //}
             //else
             //{
@@ -99,20 +96,17 @@ while (true)
             //}
 
             ////使用AsSpan配合AlternateLookup字典
-            //var word = text.AsSpan(range);
-            //if (lookup.ContainsKey(word))
-            //{
-            //    lookup[word]++;
-            //}
-            //else
-            //{
-            //    lookup[word] = 1;
-            //}
+            var word = text.AsSpan(range);
+            if (lookup.ContainsKey(word))
+            {
+                lookup[word]++;
+            }
+            else
+            {
+                lookup[word] = 1;
+            }
         }
         #endregion
-
-
-
 
         #region 循环方式
         // 统计所有字符串的总出现次数
@@ -153,6 +147,7 @@ while (true)
         ////Console.WriteLine($"出现次数：{count}");
 
         #endregion
+
     }
     sw.Stop();
     Helpers.Use(frequency);
