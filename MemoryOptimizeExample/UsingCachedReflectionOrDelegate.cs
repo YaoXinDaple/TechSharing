@@ -3,6 +3,12 @@ using System.Reflection;
 
 namespace MemoryOptimizeExample
 {
+    /*
+    | Method                                              | Count | Mean       | Error   | StdDev   | Gen0   | Allocated |
+    |---------------------------------------------------- |------ |-----------:|--------:|---------:|-------:|----------:|
+    | GetAccountAatRelatedPropertiesBenchmark             | 100   |   435.9 ns | 8.66 ns | 10.31 ns | 0.0582 |     976 B |
+    | GetAccountAatRelatedPropertiesWithDelegateBenchmark | 100   | 1,141.3 ns | 7.52 ns |  6.28 ns | 0.0420 |     712 B |
+     */
     [MemoryDiagnoser]
     public class UsingCachedReflectionOrDelegate
     {
@@ -51,7 +57,7 @@ namespace MemoryOptimizeExample
             string[] aatValues = new string[propertyInfo.Length];
             for (int i = 0; i < propertyInfo.Length; i++)
             {
-                aatValues[i] = propertyInfo[i].GetValue(account) == null ? "" : propertyInfo[i].GetValue(account).ToString()!;
+                aatValues[i] = propertyInfo[i].GetValue(account) == null ? "" : propertyInfo[i].GetValue(account)!.ToString()!;
             }
             return aatValues;
         }
@@ -75,7 +81,7 @@ namespace MemoryOptimizeExample
             #endregion
 
 
-            return account.GetType().GetProperties().Where(p => p.Name.StartsWith("AcctProjTypeCode")).ToArray();
+            return [.. account.GetType().GetProperties().Where(p => p.Name.StartsWith("AcctProjTypeCode"))];
         }
 
         private string[] GetAccountAatRelatedPropertiesWithDelegate(GLAccount account)
@@ -85,8 +91,8 @@ namespace MemoryOptimizeExample
             string[] aatValues = new string[aatPropertyNames.Length];
             for (int i = 0; i < aatPropertyNames.Length; i++)
             {
-                PropertyInfo property = type.GetProperty(aatPropertyNames[i]);
-                MemberGetDelegate memberGet = (MemberGetDelegate)System.Delegate.CreateDelegate(typeof(MemberGetDelegate), property.GetGetMethod());
+                PropertyInfo property = type.GetProperty(aatPropertyNames[i])!;
+                MemberGetDelegate memberGet = (MemberGetDelegate)System.Delegate.CreateDelegate(typeof(MemberGetDelegate), property.GetGetMethod()!);
                 aatValues[i] = memberGet(account);
             }
             return aatValues;
