@@ -12,6 +12,7 @@ List<Type> BenchmarkMethods = new List<Type>
 {
     typeof(FillDataToArrayOrListBenchmarks),
     typeof(DictionaryBenchmarks),
+    typeof(FrozenDictionaryBuildBenchmarks),
     typeof(ListBenchmarks),
     typeof(StringComparerBenchmarks),
     typeof(StringConstructorBenchmarks),

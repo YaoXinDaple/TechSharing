@@ -2,45 +2,66 @@
 using BenchmarkDotNet.Running;
 using System.Collections.Frozen;
 using System.ComponentModel;
+using System.Text;
 
 namespace Benchmarks.FrozenDictionaryBenchmarks
 {
+
+    /*
+     | Method                       | Mean      | Error     | StdDev    | Ratio | Allocated | Alloc Ratio |
+     |----------------------------- |----------:|----------:|----------:|------:|----------:|------------:|
+     | GetValueFromDictionary       | 17.350 ns | 0.0870 ns | 0.0814 ns |  1.00 |         - |          NA |
+     | GetValueFromFrozenDictionary |  9.881 ns | 0.0957 ns | 0.0895 ns |  0.57 |         - |          NA |
+     */
     [MemoryDiagnoser]
     public class DictionaryVsFrozenDictionary
     {
-        private Dictionary<int, int> _dictionary;
-        private FrozenDictionary<int, int> _frozenDictionary;
-        private const int Count = 10000;
+        private Dictionary<string, int> _dictionary;
+        private FrozenDictionary<string, int> _frozenDictionary;
+
+        private List<string> _randomKeys = [];
+        private const int Count = 1000;
+
+        private static readonly char[] AlterKeys = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
         [GlobalSetup]
         public void Setup()
         {
-            var data = new Dictionary<int, int>();
-            for (int i = 0; i < Count; i++)
+            _dictionary = new Dictionary<string, int>();
+            while (_randomKeys.Count < Count)
             {
-                data.Add(i, i);
+                StringBuilder sb = new StringBuilder();
+                int keyLength = Random.Shared.Next(3, 8);
+                for (int j = 0; j < keyLength; j++)
+                {
+                    int randomIndex = Random.Shared.Next(0, AlterKeys.Length);
+                    char partialKey = AlterKeys[randomIndex];
+                    sb.Append(partialKey);
+                }
+                _randomKeys.Add(sb.ToString());
+            }
+            _randomKeys = [.. _randomKeys.Distinct()];
+
+            for (int i = 0; i < _randomKeys.Count; i++)
+            {
+                _dictionary.TryAdd(_randomKeys[i], i);
             }
 
-            _dictionary = new Dictionary<int, int>(data);
             _frozenDictionary = _dictionary.ToFrozenDictionary();
         }
 
-        [Benchmark]
-        public void TestDictionary()
+        [Benchmark(Baseline = true)]
+        public void GetValueFromDictionary()
         {
-            for (int i = 0; i < Count; i++)
-            {
-                var value = _dictionary[i];
-            }
+            int randomIndex = Random.Shared.Next(0, _randomKeys.Count);
+            var value = _dictionary[_randomKeys[randomIndex]];
         }
 
         [Benchmark]
-        public void TestFrozenDictionary()
+        public void GetValueFromFrozenDictionary()
         {
-            for (int i = 0; i < Count; i++)
-            {
-                var value = _frozenDictionary[i];
-            }
+            int randomIndex = Random.Shared.Next(0, _randomKeys.Count);
+            var value = _frozenDictionary[_randomKeys[randomIndex]];
         }
     }
 
