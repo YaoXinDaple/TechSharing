@@ -15,12 +15,12 @@ public partial class LemonTaxItemCategory
     public int Id { get; set; }
 
     public string Name { get; set; } = null!;
+    public string TaxCode { get; set; } = null!;
 
     public string? ShortName { get; set; }
 
     public string? Description { get; set; }
 
-    public string TaxCode { get; set; } = null!;
 
     public int ParentId { get; set; }
 

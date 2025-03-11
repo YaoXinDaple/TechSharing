@@ -11,8 +11,8 @@ Dictionary<string, int> frequency = [];
 var lookup = frequency.GetAlternateLookup<ReadOnlySpan<char>>();
 
 
-string[] names = ["宋江", "高俅", "林冲", "武松", "时迁", "方腊"];
-SearchValues<string> searchValues = SearchValues.Create(names,StringComparison.OrdinalIgnoreCase);
+//string[] names = ["宋江", "高俅", "林冲", "武松", "时迁", "方腊"];
+//SearchValues<string> searchValues = SearchValues.Create(names,StringComparison.OrdinalIgnoreCase);
 
 Stopwatch sw = new();
 while (true)
@@ -21,25 +21,112 @@ while (true)
     sw.Restart();
     for (int trial = 0; trial < 10; trial++)
     {
+        #region 正则匹配模式 Matches
+        //foreach (Match m in Helpers.Words().Matches(text))
+        //{
+        //    string word = m.Value;
+        //    if (frequency.ContainsKey(word))
+        //    {
+        //        frequency[word]++;
+        //    }
+        //    else
+        //    {
+        //        frequency[word] = 1;
+        //    }
+        //} 
+        #endregion
+
+        #region 正则匹配模式 EnumerateMatches
+        //foreach (var m in Helpers.Words().EnumerateMatches(text))
+        //{
+        //    string word = text.Substring(m.Index, m.Length);
+        //    if (frequency.ContainsKey(word))
+        //    {
+        //        frequency[word]++;
+        //    }
+        //    else
+        //    {
+        //        frequency[word] = 1;
+        //    }
+        //} 
+        #endregion
+
+        #region Split
+
+        //foreach (var m in Helpers.WhiteSpace().Split(text))
+        //{
+        //    var word = m;
+        //    if (frequency.ContainsKey(word))
+        //    {
+        //        frequency[word]++;
+        //    }
+        //    else
+        //    {
+        //        frequency[word] = 1;
+        //    }
+        //}
+
+        //foreach (var m in text.Split(Environment.NewLine))
+        //{
+        //    var word = m;
+        //    if (frequency.TryGetValue(word, out int value))
+        //    {
+        //        frequency[word] = ++value;
+        //    }
+        //    else
+        //    {
+        //        frequency[word] = 1;
+        //    }
+        //}
+
+        #endregion
+
+        #region EnumerateSplits
+        foreach (var range in Helpers.WhiteSpace().EnumerateSplits(text))
+        {
+            //使用下标访问字符串
+            //var word = text[range];
+            //if (frequency.TryGetValue(word, out int value))
+            //{
+            //    frequency[word] = ++value;
+            //}
+            //else
+            //{
+            //    frequency[word] = 1;
+            //}
+
+            ////使用AsSpan配合AlternateLookup字典
+            var word = text.AsSpan(range);
+            if (lookup.ContainsKey(word))
+            {
+                lookup[word]++;
+            }
+            else
+            {
+                lookup[word] = 1;
+            }
+        }
+        #endregion
+
         #region 循环方式
         // 统计所有字符串的总出现次数
-        int totalCount = 0;
+        //int totalCount = 0;
 
-        // 遍历字符串数组，累加每个字符串的出现次数
-        foreach (string str in names)
-        {
-            int count = 0;
-            int index = 0;
+        //// 遍历字符串数组，累加每个字符串的出现次数
+        //foreach (string str in names)
+        //{
+        //    int count = 0;
+        //    int index = 0;
 
-            // 查找当前字符串在文件内容中的出现次数
-            while ((index = text.IndexOf(str, index, StringComparison.OrdinalIgnoreCase)) != -1)
-            {
-                count++;
-                index += str.Length; // 移动到下一个搜索位置
-            }
+        //    // 查找当前字符串在文件内容中的出现次数
+        //    while ((index = text.IndexOf(str, index, StringComparison.OrdinalIgnoreCase)) != -1)
+        //    {
+        //        count++;
+        //        index += str.Length; // 移动到下一个搜索位置
+        //    }
 
-            totalCount += count; // 累加到总计数
-        }
+        //    totalCount += count; // 累加到总计数
+        //}
         #endregion
 
         #region SearchValues
@@ -60,6 +147,7 @@ while (true)
         ////Console.WriteLine($"出现次数：{count}");
 
         #endregion
+
     }
     sw.Stop();
     Helpers.Use(frequency);
@@ -72,7 +160,7 @@ static partial class Helpers
     [GeneratedRegex(@"\s+")]
     public static partial Regex WhiteSpace();
 
-    [GeneratedRegex(@"宋江")]
+    [GeneratedRegex(@"\w+")]
     public static partial Regex Words();
 
     public static void Use<T>(T value)
