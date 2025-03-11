@@ -4,6 +4,7 @@ using MediatRInfrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MediatRInfrastructure.Migrations
 {
     [DbContext(typeof(MediatRDbContext))]
-    partial class MediatRDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250215103953_Add_Plan_Entity")]
+    partial class Add_Plan_Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,9 +93,6 @@ namespace MediatRInfrastructure.Migrations
 
                             b1.Property<DateTime>("End")
                                 .HasColumnType("datetime2");
-
-                            b1.Property<int?>("NumberOfDays")
-                                .HasColumnType("int");
 
                             b1.Property<DateTime>("Start")
                                 .HasColumnType("datetime2");
