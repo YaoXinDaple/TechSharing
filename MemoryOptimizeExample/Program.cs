@@ -20,7 +20,7 @@ public class Program
         //}
         //Console.WriteLine(aatValues);
 
-        BenchmarkRunner.Run<UsingCachedReflectionOrDelegate>();
+        BenchmarkRunner.Run<ReadLineOrColumn>();
 
         Console.ReadLine();
     }
