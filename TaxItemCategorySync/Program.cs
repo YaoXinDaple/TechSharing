@@ -4,12 +4,13 @@ using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using TaxItemCategorySync.GetValidEmail;
 using TaxItemCategorySync.RecyclableMemoryStreamManagerBenchmark;
+using TaxItemCategorySync.StringReplaceBenchmark;
 using TaxItemCategorySync.SyncCustomer;
 using TaxItemCategorySync.SyncTaxItemCategory;
 
 Console.WriteLine("Hello, World!");
 
-BenchmarkDotNet.Running.BenchmarkRunner.Run<RecyclableMemoryStreamManagerTest>();
+BenchmarkDotNet.Running.BenchmarkRunner.Run<StringReplace>();
 
 
 ////创建同步客户信息的Channel
