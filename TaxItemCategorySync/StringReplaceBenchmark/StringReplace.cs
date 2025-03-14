@@ -46,82 +46,107 @@ namespace TaxItemCategorySync.StringReplaceBenchmark
         private static string match1 = "0.015,";
         private static string match2 = ",0.015";
 
+        private static string[] mathes = ["0.015,", ",0.015", "0.015"];
+
         [Params("0.015,0.03,0.01,0.06,0.09,0.15", "0.03,0.01,0.06,0.015,0.09,0.15", "0.03,0.01,0.06,0.09,0.15,0.015")]
         public string InputString { get; set; }
 
         [Benchmark]
         public string Replace()
         {
-            return InputString.Replace(match1, "").Replace(match2, "");
+            Array.ForEach(mathes, m => InputString = InputString.Replace(m, ""));
+            return InputString;
         }
 
         [Benchmark]
         public string SplitThenJoin()
         {
-            var parts = InputString.Split(new string[] { match1, match2 }, StringSplitOptions.None);
-            for (int i = 0; i < parts.Length; i++)
-            {
-                if (parts[i] == match1 || parts[i] == match2)
-                {
-                    parts[i] = "";
-                }
-            }
-            return string.Join("", parts);
+            return string.Join(",",
+                InputString.Split(',', StringSplitOptions.None)
+                .Where(a => a != "0.015")
+                );
         }
 
         [Benchmark(Baseline = true)]
         public string UseSpan()
         {
             var span = InputString.AsSpan();
+            var emptySpan = Span<char>.Empty;
 
-            int startIndex = span.IndexOfAny(match1);
-            if (startIndex == 0)
+            foreach (var m in mathes)
             {
-                var newString = span.Slice(match1.Length).ToString();
-                return newString;
-            }
-            else if (startIndex > 0 && span.Length == startIndex + match1.Length)
-            {
-                if (span.Length == startIndex + match1.Length)
-                {
-                    return span.Slice(0, startIndex).ToString();
-                }
-                else
-                {
-                    var leftPart = span.Slice(0, startIndex);
-                    var rightPart = span.Slice(startIndex + match1.Length);
-                    var newSpan = Span<char>.Empty;
-                    leftPart.CopyTo(newSpan);
-                    rightPart.CopyTo(newSpan);
-                    return newSpan.ToString();
-                }
-            }
-            else
-            {
-                startIndex = span.IndexOf(match2);
+                int startIndex = span.IndexOf(m);
                 if (startIndex == 0)
                 {
-                    var newString = span.Slice(match2.Length).ToString();
-                    return newString;
+                    span.Slice(m.Length).CopyTo(emptySpan);
                 }
-                else if (startIndex > 0 && span.Length == startIndex + match2.Length)
+                else if (startIndex > 0 && span.Length == startIndex + m.Length)
                 {
-                    if (span.Length == startIndex + match2.Length)
+                    if (span.Length == startIndex + m.Length)
                     {
-                        return span.Slice(0, startIndex).ToString();
+                        span.Slice(0, startIndex).CopyTo(emptySpan);
                     }
                     else
                     {
                         var leftPart = span.Slice(0, startIndex);
-                        var rightPart = span.Slice(startIndex + match2.Length);
-                        var newSpan = Span<char>.Empty;
-                        leftPart.CopyTo(newSpan);
-                        rightPart.CopyTo(newSpan);
-                        return newSpan.ToString();
+                        var rightPart = span.Slice(startIndex + m.Length);
+                        leftPart.CopyTo(emptySpan);
+                        rightPart.CopyTo(emptySpan);
                     }
                 }
             }
-            return InputString;
+            return emptySpan.ToString();
+            #region 原代码
+
+            //int startIndex = span.IndexOf(match1);
+            //if (startIndex == 0)
+            //{
+            //    var newString = span.Slice(match1.Length).ToString();
+            //    return newString;
+            //}
+            //else if (startIndex > 0 && span.Length == startIndex + match1.Length)
+            //{
+            //    if (span.Length == startIndex + match1.Length)
+            //    {
+            //        return span.Slice(0, startIndex).ToString();
+            //    }
+            //    else
+            //    {
+            //        var leftPart = span.Slice(0, startIndex);
+            //        var rightPart = span.Slice(startIndex + match1.Length);
+            //        var newSpan = Span<char>.Empty;
+            //        leftPart.CopyTo(newSpan);
+            //        rightPart.CopyTo(newSpan);
+            //        return newSpan.ToString();
+            //    }
+            //}
+            //else
+            //{
+            //    startIndex = span.IndexOf(match2);
+            //    if (startIndex == 0)
+            //    {
+            //        var newString = span.Slice(match2.Length).ToString();
+            //        return newString;
+            //    }
+            //    else if (startIndex > 0 && span.Length == startIndex + match2.Length)
+            //    {
+            //        if (span.Length == startIndex + match2.Length)
+            //        {
+            //            return span.Slice(0, startIndex).ToString();
+            //        }
+            //        else
+            //        {
+            //            var leftPart = span.Slice(0, startIndex);
+            //            var rightPart = span.Slice(startIndex + match2.Length);
+            //            var newSpan = Span<char>.Empty;
+            //            leftPart.CopyTo(newSpan);
+            //            rightPart.CopyTo(newSpan);
+            //            return newSpan.ToString();
+            //        }
+            //    }
+            //}
+            //return InputString; 
+            #endregion
         }
     }
 }
