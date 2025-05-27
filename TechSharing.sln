@@ -113,6 +113,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FusionCache", "FusionCache"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionCacheUsage", "FusionCacheUsage\FusionCacheUsage.csproj", "{69626D40-03EB-4828-8540-A830E8DD37CE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonStreamReader", "JsonStreamReader", "{579D172A-21D4-0143-4A78-BF69BE8A4B5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZLinq", "ZLinq", "{78F5D2A1-D37D-4040-A63D-F804628A92FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZlinqCompareWithLinq", "ZlinqCompareWithLinq\ZlinqCompareWithLinq.csproj", "{8F67786C-1DFC-4F72-A060-76666B913561}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{9FA3D6BD-1EC1-3BA5-80CB-CE02773A58D5}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -263,6 +274,10 @@ Global
 		{69626D40-03EB-4828-8540-A830E8DD37CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69626D40-03EB-4828-8540-A830E8DD37CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69626D40-03EB-4828-8540-A830E8DD37CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F67786C-1DFC-4F72-A060-76666B913561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F67786C-1DFC-4F72-A060-76666B913561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F67786C-1DFC-4F72-A060-76666B913561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F67786C-1DFC-4F72-A060-76666B913561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -305,6 +320,7 @@ Global
 		{4F0722B2-27DB-460F-BB59-7FD11C0555C2} = {1BD0947D-3439-4570-9F0C-E97815307B5D}
 		{908F685E-CAEE-4E9C-B7F3-1B22AF0707A8} = {D1470629-B3EF-4E2F-BE9A-574633394D50}
 		{69626D40-03EB-4828-8540-A830E8DD37CE} = {C4E2987B-971F-C8CD-2682-B2046FA60BAE}
+		{8F67786C-1DFC-4F72-A060-76666B913561} = {78F5D2A1-D37D-4040-A63D-F804628A92FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
