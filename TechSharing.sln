@@ -103,6 +103,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxItemCategorySync", "TaxI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryOptimizeExample", "MemoryOptimizeExample\MemoryOptimizeExample.csproj", "{163B3CC0-F5A3-430C-A815-BB3FCF1BC220}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompositionOverInheritage", "CompositionOverInheritage", "{397347D7-6966-4A78-A4FD-A0A46B79A6C9}"
+	ProjectSection(SolutionItems) = preProject
+		组合优于继承.md = 组合优于继承.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
