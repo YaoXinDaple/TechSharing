@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using System.Runtime.InteropServices;
 
 namespace TaxItemCategorySync.StringReplaceBenchmark
 {
@@ -46,9 +47,11 @@ namespace TaxItemCategorySync.StringReplaceBenchmark
         private static string match1 = "0.015,";
         private static string match2 = ",0.015";
 
+        private static string substringToRemove = "0.015";
+
         private static string[] mathes = ["0.015,", ",0.015", "0.015"];
 
-        [Params("0.015,0.03,0.01,0.06,0.09,0.15", "0.03,0.01,0.06,0.015,0.09,0.15", "0.03,0.01,0.06,0.09,0.15,0.015")]
+        [Params("0.015,0.03,0.01,0.06,0.09,0.15,0.015,0.03,0.01,0.06,0.09,0.150.015,0.03,0.01,0.06,0.09,0.150.015,0.03,0.01,0.06,0.09,0.150.015,0.03,0.01,0.06,0.09,0.15")]
         public string InputString { get; set; }
 
         [Benchmark]
@@ -58,7 +61,7 @@ namespace TaxItemCategorySync.StringReplaceBenchmark
             return InputString;
         }
 
-        [Benchmark]
+        //[Benchmark]
         public string SplitThenJoin()
         {
             return string.Join(",",
@@ -68,85 +71,34 @@ namespace TaxItemCategorySync.StringReplaceBenchmark
         }
 
         [Benchmark(Baseline = true)]
-        public string UseSpan()
+        public string RemoveSubstringWithSpan(string input, string substringToRemove)
         {
-            var span = InputString.AsSpan();
-            var emptySpan = Span<char>.Empty;
+            if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(substringToRemove))
+                return input;
 
-            foreach (var m in mathes)
+            ReadOnlySpan<char> sourceSpan = input.AsSpan();
+            ReadOnlySpan<char> removeSpan = substringToRemove.AsSpan();
+            Span<char> buffer = stackalloc char[sourceSpan.Length]; // 栈上分配临时内存
+            int writeIndex = 0;
+            int removeLength = removeSpan.Length;
+
+            for (int i = 0; i < sourceSpan.Length; i++)
             {
-                int startIndex = span.IndexOf(m);
-                if (startIndex == 0)
+                // 检查是否匹配子字符串
+                if (i <= sourceSpan.Length - removeLength && sourceSpan.Slice(i, removeLength).SequenceEqual(removeSpan))
                 {
-                    span.Slice(m.Length).CopyTo(emptySpan);
+                    i += removeLength - 1; // 跳过子字符串
                 }
-                else if (startIndex > 0 && span.Length == startIndex + m.Length)
+                else
                 {
-                    if (span.Length == startIndex + m.Length)
-                    {
-                        span.Slice(0, startIndex).CopyTo(emptySpan);
-                    }
-                    else
-                    {
-                        var leftPart = span.Slice(0, startIndex);
-                        var rightPart = span.Slice(startIndex + m.Length);
-                        leftPart.CopyTo(emptySpan);
-                        rightPart.CopyTo(emptySpan);
-                    }
+                    buffer[writeIndex++] = sourceSpan[i]; // 写入字符
                 }
             }
-            return emptySpan.ToString();
-            #region 原代码
 
-            //int startIndex = span.IndexOf(match1);
-            //if (startIndex == 0)
-            //{
-            //    var newString = span.Slice(match1.Length).ToString();
-            //    return newString;
-            //}
-            //else if (startIndex > 0 && span.Length == startIndex + match1.Length)
-            //{
-            //    if (span.Length == startIndex + match1.Length)
-            //    {
-            //        return span.Slice(0, startIndex).ToString();
-            //    }
-            //    else
-            //    {
-            //        var leftPart = span.Slice(0, startIndex);
-            //        var rightPart = span.Slice(startIndex + match1.Length);
-            //        var newSpan = Span<char>.Empty;
-            //        leftPart.CopyTo(newSpan);
-            //        rightPart.CopyTo(newSpan);
-            //        return newSpan.ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    startIndex = span.IndexOf(match2);
-            //    if (startIndex == 0)
-            //    {
-            //        var newString = span.Slice(match2.Length).ToString();
-            //        return newString;
-            //    }
-            //    else if (startIndex > 0 && span.Length == startIndex + match2.Length)
-            //    {
-            //        if (span.Length == startIndex + match2.Length)
-            //        {
-            //            return span.Slice(0, startIndex).ToString();
-            //        }
-            //        else
-            //        {
-            //            var leftPart = span.Slice(0, startIndex);
-            //            var rightPart = span.Slice(startIndex + match2.Length);
-            //            var newSpan = Span<char>.Empty;
-            //            leftPart.CopyTo(newSpan);
-            //            rightPart.CopyTo(newSpan);
-            //            return newSpan.ToString();
-            //        }
-            //    }
-            //}
-            //return InputString; 
-            #endregion
+            // 返回新字符串（仅复制有效部分）
+            return new string(buffer.Slice(0, writeIndex));
         }
+
+
     }
 }
