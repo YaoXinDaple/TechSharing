@@ -140,6 +140,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorPattern", "VisitorPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResponsibleChainPattern", "ResponsibleChainPattern\ResponsibleChainPattern.csproj", "{EAD36FA1-207F-476B-8BB6-28EBB98DB7BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompositionOverInheritage", "CompositionOverInheritage", "{397347D7-6966-4A78-A4FD-A0A46B79A6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionOverInheritage", "CompositionOverInheritage\CompositionOverInheritage.csproj", "{4476466A-5454-42D0-B340-2C4F592F553F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -326,6 +330,10 @@ Global
 		{EAD36FA1-207F-476B-8BB6-28EBB98DB7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD36FA1-207F-476B-8BB6-28EBB98DB7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD36FA1-207F-476B-8BB6-28EBB98DB7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4476466A-5454-42D0-B340-2C4F592F553F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4476466A-5454-42D0-B340-2C4F592F553F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4476466A-5454-42D0-B340-2C4F592F553F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4476466A-5454-42D0-B340-2C4F592F553F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -377,6 +385,7 @@ Global
 		{94D97336-AEE6-435C-8C16-32377904A0DA} = {4128AD63-7B7F-44F4-AD51-CCEC51BEECA2}
 		{542FD9BE-E052-4735-B7DB-4DC86857AB9C} = {4128AD63-7B7F-44F4-AD51-CCEC51BEECA2}
 		{EAD36FA1-207F-476B-8BB6-28EBB98DB7BE} = {4128AD63-7B7F-44F4-AD51-CCEC51BEECA2}
+		{4476466A-5454-42D0-B340-2C4F592F553F} = {397347D7-6966-4A78-A4FD-A0A46B79A6C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
