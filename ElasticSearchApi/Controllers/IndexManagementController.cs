@@ -1,5 +1,4 @@
 using Elastic.Clients.Elasticsearch;
-using Elastic.Clients.Elasticsearch.IndexManagement;
 using ElasticSearchApi.Configuration;
 using ElasticSearchApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +36,14 @@ public class IndexManagementController : ControllerBase
                 .Settings(s => s
                     .NumberOfShards(1)
                     .NumberOfReplicas(0)
+                    .Analysis(a => a
+                        .Analyzers(aa => aa
+                            .Custom("my_ik_analyzer", ca => ca // 定义一个自定义分析器
+                                .Tokenizer("ik_max_word")
+                                .Filter("lowercase") // 可以添加令牌过滤器，如小写化
+                            )
+                        )
+                    )
                 )
                 .Mappings(m => m
                     .Properties<Document>(p => p
@@ -103,7 +110,7 @@ public class IndexManagementController : ControllerBase
         try
         {
             var response = await _client.Indices.ExistsAsync(indexName);
-            
+
             return Ok(new { IndexName = indexName, Exists = response.Exists });
         }
         catch (Exception ex)
@@ -173,7 +180,7 @@ public class IndexManagementController : ControllerBase
         {
             // 检查默认索引是否存在
             var existsResponse = await _client.Indices.ExistsAsync(_settings.DefaultIndex);
-            
+
             if (existsResponse.Exists)
             {
                 return Ok(new { Message = $"Index '{_settings.DefaultIndex}' already exists" });
@@ -212,9 +219,10 @@ public class IndexManagementController : ControllerBase
                 return BadRequest($"Failed to initialize default index: {createResponse.DebugInformation}");
             }
 
-            return Ok(new { 
-                Message = $"Default index '{_settings.DefaultIndex}' initialized successfully", 
-                Acknowledged = createResponse.Acknowledged 
+            return Ok(new
+            {
+                Message = $"Default index '{_settings.DefaultIndex}' initialized successfully",
+                Acknowledged = createResponse.Acknowledged
             });
         }
         catch (Exception ex)
@@ -239,7 +247,7 @@ public class IndexManagementController : ControllerBase
 
             if (!response.IsValidResponse)
             {
-                _logger.LogError("Failed to reindex from {SourceIndex} to {TargetIndex}: {Error}", 
+                _logger.LogError("Failed to reindex from {SourceIndex} to {TargetIndex}: {Error}",
                     sourceIndex, targetIndex, response.DebugInformation);
                 return BadRequest($"Failed to reindex: {response.DebugInformation}");
             }
