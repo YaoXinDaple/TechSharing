@@ -41,4 +41,13 @@ docker.elastic.co/kibana/kibana:latest : kibana远程镜像仓库地址，也可
 ### 注意点
 es和kibana要使用同一网络
 两者版本号要一一对应
-MIT License
+分词器版本号也必须和es版本号严格对应
+
+安装 中文分词器 IK分词器
+
+在 https://release.infinilabs.com/analysis-ik/stable/ 找到对应版本的安装包下载地址
+
+在es容器中 Exec tab页执行一下命令安装
+```
+bin/elasticsearch-plugin install https://release.infinilabs.com/analysis-ik/stable/elasticsearch-analysis-ik-9.1.3.zip
+```
