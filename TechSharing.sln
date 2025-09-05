@@ -128,6 +128,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompositionOverInheritage",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionOverInheritage", "CompositionOverInheritage\CompositionOverInheritage.csproj", "{4476466A-5454-42D0-B340-2C4F592F553F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticSearchApi", "ElasticSearchApi", "{48D661B7-476D-4839-986D-26BB2E20521E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSearchApi", "ElasticSearchApi\ElasticSearchApi.csproj", "{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -286,6 +290,10 @@ Global
 		{4476466A-5454-42D0-B340-2C4F592F553F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4476466A-5454-42D0-B340-2C4F592F553F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4476466A-5454-42D0-B340-2C4F592F553F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -330,6 +338,7 @@ Global
 		{69626D40-03EB-4828-8540-A830E8DD37CE} = {C4E2987B-971F-C8CD-2682-B2046FA60BAE}
 		{8F67786C-1DFC-4F72-A060-76666B913561} = {78F5D2A1-D37D-4040-A63D-F804628A92FE}
 		{4476466A-5454-42D0-B340-2C4F592F553F} = {397347D7-6966-4A78-A4FD-A0A46B79A6C9}
+		{F16CCD6F-25A0-1FE7-E2AB-A6361FC35E1F} = {48D661B7-476D-4839-986D-26BB2E20521E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D58BB77-22F2-43A0-8943-8D4A5C1C3CB9}
