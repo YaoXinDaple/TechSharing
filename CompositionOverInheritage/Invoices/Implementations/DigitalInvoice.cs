@@ -14,5 +14,13 @@ namespace CompositionOverInheritage.Invoices.Implementations
         string IHasDetailBehavior.InvoiceNumber => throw new NotSupportedException();
 
         public string DigitalInvoiceNumber => throw new NotImplementedException();
+
+        public string BuyerName => throw new NotImplementedException();
+
+        public string BuyerTaxNumber => throw new NotImplementedException();
+
+        public string SellerName => throw new NotImplementedException();
+
+        public string SellerTaxNumber => throw new NotImplementedException();
     }
 }

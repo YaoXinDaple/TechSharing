@@ -1,4 +1,4 @@
-﻿StructWithManagedType anotherStruct = new StructWithManagedType { Value = 1, Name = "123" };
+﻿PureUnManagedStruct anotherStruct = new PureUnManagedStruct { Value = 1 };
 
 PureUnManagedStruct pureUnManagedStruct = new PureUnManagedStruct { Value = 1 };
 StructWithGenericType<PureUnManagedStruct> someStruct = new StructWithGenericType<PureUnManagedStruct> { Value = 1, Number = 1.2, SomValue = anotherStruct };
@@ -18,10 +18,10 @@ public struct PureUnManagedStruct
     public int Value;
 }
 
-public struct StructWithManagedType
+public ref struct StructWithManagedType
 {
     public int Value;
-    public string Name;
+    public ReadOnlySpan<char> Name;
 }
 
 public struct StructWithGenericType<T> where T : unmanaged

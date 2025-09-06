@@ -19,5 +19,10 @@ namespace StrategyPattern.Strategies
         {
             return amount - _fixedDiscount;
         }
+
+        public decimal ApplyDiscount(DiscountContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
